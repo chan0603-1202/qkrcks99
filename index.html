@@ -5,10 +5,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#07162a">
   <title>한국의 전통</title>
-  <link rel="stylesheet" href="./src/styles.css?v=menu-overlay-3">
+  <link rel="stylesheet" href="./src/styles.css?v=home-slides-1">
   <style>
     :root { --navy: #12284c; }
     body { background: var(--navy); }
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      opacity: 0;
+      animation: hero-fade 13.5s ease-in-out infinite;
+      animation-delay: calc(var(--slide-index) * 4.5s);
+    }
+    .hero-slide::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(180deg, rgba(11, 22, 42, 0.24), rgba(11, 22, 42, 0.84)), var(--hero-image);
+      background-position: center;
+      background-size: cover;
+      transform: scale(1.03);
+    }
+    .hero-slide::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 42%;
+      background: linear-gradient(135deg, transparent 0 46%, rgba(197, 155, 69, 0.18) 46% 48%, transparent 48%), linear-gradient(45deg, transparent 0 44%, rgba(255, 250, 240, 0.12) 44% 46%, transparent 46%);
+      opacity: 0.55;
+    }
+    .slide-dots span {
+      animation: dot-fade 13.5s ease-in-out infinite;
+      animation-delay: calc(var(--dot-index) * 4.5s);
+    }
+    @keyframes hero-fade {
+      0%, 29% { opacity: 1; }
+      36%, 100% { opacity: 0; }
+    }
+    @keyframes dot-fade {
+      0%, 29% { width: 30px; background: #fffaf0; }
+      36%, 100% { width: 8px; background: rgba(255, 255, 255, 0.46); }
+    }
   </style>
 </head>
 <body data-lang="ko">
@@ -49,14 +88,32 @@
       </nav>
     </aside>
 
-    <section class="hero-screen" data-view="fallback" style="--hero-image: url('https://commons.wikimedia.org/wiki/Special:FilePath/Bukchon_Hanok_Village.jpg?width=1200')">
-      <div class="hero-copy">
-        <p class="ko">자연과 어울리는 한옥</p>
-        <p class="en">Hanok in harmony with nature</p>
-        <h1 class="ko">한국의 전통</h1>
-        <h1 class="en">korea's Traditions</h1>
-      </div>
-      <div class="slide-dots" aria-hidden="true"><span class="active"></span><span></span><span></span></div>
+    <section class="hero-screen" data-view="fallback">
+      <article class="hero-slide" style="--slide-index: 0; --hero-image: url('https://commons.wikimedia.org/wiki/Special:FilePath/Bukchon_Hanok_Village.jpg?width=1200')">
+        <div class="hero-copy">
+          <p class="ko">자연과 어울리는 한옥</p>
+          <p class="en">Hanok in harmony with nature</p>
+          <h1 class="ko">한국의 전통</h1>
+          <h1 class="en">korea's Traditions</h1>
+        </div>
+      </article>
+      <article class="hero-slide" style="--slide-index: 1; --hero-image: url('assets/images/hanbok-mannequin.svg')">
+        <div class="hero-copy">
+          <p class="ko">색과 선이 아름다운 한복</p>
+          <p class="en">Hanbok shaped by color and line</p>
+          <h1 class="ko">한국의 전통</h1>
+          <h1 class="en">korea's Traditions</h1>
+        </div>
+      </article>
+      <article class="hero-slide" style="--slide-index: 2; --hero-image: url('https://commons.wikimedia.org/wiki/Special:FilePath/Yut-nori.jpg?width=1200')">
+        <div class="hero-copy">
+          <p class="ko">함께 즐기는 전통놀이</p>
+          <p class="en">Traditional games played together</p>
+          <h1 class="ko">한국의 전통</h1>
+          <h1 class="en">korea's Traditions</h1>
+        </div>
+      </article>
+      <div class="slide-dots" aria-hidden="true"><span style="--dot-index: 0"></span><span style="--dot-index: 1"></span><span style="--dot-index: 2"></span></div>
     </section>
 
     <section id="houses" class="content-page">
@@ -65,6 +122,11 @@
       <h1 class="ko">한국 가옥</h1><h1 class="en">Korean Houses</h1>
       <p class="summary ko">한옥은 자연 재료로 지은 한국의 전통 가옥입니다. 온돌, 마루, 마당과 처마를 통해 계절과 자연에 맞춘 생활 방식을 보여줍니다.</p>
       <p class="summary en">Hanok is a traditional Korean house built with natural materials, designed around floor heating, airflow, courtyards, and nature.</p>
+      <div class="info-grid">
+        <article class="info-card dancheong-edge"><h2>온돌</h2><p>바닥을 따뜻하게 데우는 한국의 전통 난방 방식입니다.</p></article>
+        <article class="info-card dancheong-edge"><h2>마루</h2><p>바람이 잘 통하는 나무 바닥 공간입니다.</p></article>
+        <article class="info-card dancheong-edge"><h2>자연과의 조화</h2><p>마당, 처마, 창호를 통해 집 안팎이 자연스럽게 이어집니다.</p></article>
+      </div>
     </section>
 
     <section id="hanbok" class="content-page">
@@ -73,6 +135,11 @@
       <h1 class="ko">한복</h1><h1 class="en">Hanbok</h1>
       <p class="summary ko">한복은 한국의 전통 의복입니다. 부드러운 선과 넉넉한 형태가 특징이며 명절과 결혼식 같은 특별한 날에 자주 입습니다.</p>
       <p class="summary en">Hanbok is traditional Korean clothing known for soft lines, graceful volume, and ceremonial colors.</p>
+      <div class="info-grid">
+        <article class="info-card dancheong-edge"><h2>저고리</h2><p>상체에 입는 한복의 짧은 윗옷입니다.</p></article>
+        <article class="info-card dancheong-edge"><h2>치마와 바지</h2><p>넉넉한 형태로 한복의 흐르는 실루엣을 만듭니다.</p></article>
+        <article class="info-card dancheong-edge"><h2>색의 의미</h2><p>색은 계절, 나이, 행사, 상징과 연결되기도 합니다.</p></article>
+      </div>
     </section>
 
     <section id="games" class="content-page">
@@ -81,11 +148,21 @@
       <h1 class="ko">전통놀이</h1><h1 class="en">Traditional Games</h1>
       <p class="summary ko">전통놀이는 가족과 마을 사람들이 함께 즐기던 놀이입니다. 윷놀이, 제기차기, 투호처럼 규칙이 간단해 쉽게 따라 할 수 있습니다.</p>
       <p class="summary en">Traditional Korean games were enjoyed by families and communities, especially during holidays and outdoor gatherings.</p>
+      <div class="info-grid">
+        <article class="info-card dancheong-edge"><h2>윷놀이</h2><p>윷가락을 던져 말을 움직이는 대표적인 명절 놀이입니다.</p></article>
+        <article class="info-card dancheong-edge"><h2>제기차기</h2><p>제기를 발로 차며 떨어뜨리지 않는 놀이입니다.</p></article>
+        <article class="info-card dancheong-edge"><h2>투호</h2><p>항아리에 화살을 던져 넣는 전통놀이입니다.</p></article>
+      </div>
     </section>
 
     <section id="quiz" class="quiz-page">
       <p class="kicker ko">퀴즈</p><p class="kicker en">Quiz</p>
       <h1 class="ko">퀴즈</h1><h1 class="en">Quiz</h1>
+      <div class="quiz-options">
+        <a class="quiz-option dancheong-edge" href="#houses"><strong>한국 가옥 퀴즈</strong><span>온돌, 마루, 한옥 재료</span></a>
+        <a class="quiz-option dancheong-edge" href="#hanbok"><strong>한복 퀴즈</strong><span>저고리, 치마와 바지, 색의 의미</span></a>
+        <a class="quiz-option dancheong-edge" href="#games"><strong>전통놀이 퀴즈</strong><span>윷놀이, 제기차기, 투호</span></a>
+      </div>
     </section>
   </main>
   <script>
@@ -114,6 +191,6 @@
       });
     })();
   </script>
-  <script type="module" src="./src/app.js?v=menu-overlay-3"></script>
+  <script type="module" src="./src/app.js?v=home-slides-1"></script>
 </body>
 </html>
