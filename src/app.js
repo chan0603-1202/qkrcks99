@@ -18,6 +18,7 @@ let state = createAppState();
 
 function render() {
   root.innerHTML = renderApp(state, data);
+  document.body.classList.toggle('menu-open', state.menuOpen);
 }
 
 function handleRoute(target) {
