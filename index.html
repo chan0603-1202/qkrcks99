@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#07162a">
   <title>한국의 전통</title>
-  <link rel="stylesheet" href="./src/styles.css?v=one-page-1">
+  <link rel="stylesheet" href="./src/styles.css?v=one-page-2">
   <style>
     :root { --navy: #12284c; }
     body { background: var(--navy); }
@@ -23,10 +23,9 @@
       content: "";
       position: absolute;
       inset: 0;
-      background-image: linear-gradient(180deg, rgba(11, 22, 42, 0.24), rgba(11, 22, 42, 0.84)), var(--hero-image);
+      background-image: linear-gradient(180deg, rgba(11, 22, 42, 0.24), rgba(11, 22, 42, 0.84));
       background-position: center;
       background-size: cover;
-      transform: scale(1.03);
     }
     .hero-slide::after {
       content: "";
@@ -39,6 +38,14 @@
     .slide-dots span {
       animation: dot-fade 13.5s ease-in-out infinite;
       animation-delay: calc(var(--dot-index) * 4.5s);
+    }
+    .hero-photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.03);
     }
     @keyframes hero-fade {
       0%, 33% { opacity: 1; }
@@ -73,7 +80,7 @@
       </div>
       <nav class="menu-cards">
         <a class="menu-card" href="#houses">
-          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bukchon_Hanok_Village.jpg?width=600" alt="한옥">
+          <img src="assets/images/hanok-scene.svg" alt="한옥">
           <span><strong class="ko">한국 가옥</strong><strong class="en">Korean Houses</strong><small class="ko">한옥, 온돌, 마루</small><small class="en">Hanok, ondol, maru</small></span>
         </a>
         <a class="menu-card" href="#hanbok">
@@ -81,7 +88,7 @@
           <span><strong class="ko">한복</strong><strong class="en">Hanbok</strong><small class="ko">저고리, 치마와 바지, 색의 의미</small><small class="en">Jeogori, chima, baji, color</small></span>
         </a>
         <a class="menu-card" href="#games">
-          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Yut-nori.jpg?width=600" alt="윷놀이">
+          <img src="assets/images/yutnori-scene.svg" alt="윷놀이">
           <span><strong class="ko">전통놀이</strong><strong class="en">Traditional Games</strong><small class="ko">윷놀이, 제기차기, 투호</small><small class="en">Yutnori, jegichagi, tuho</small></span>
         </a>
         <a class="menu-card quiz-card" href="#quiz"><span><strong class="ko">퀴즈</strong><strong class="en">Quiz</strong></span></a>
@@ -89,7 +96,8 @@
     </aside>
 
     <section class="hero-screen" data-view="fallback">
-      <article class="hero-slide" style="--slide-index: 0; --hero-image: url('https://commons.wikimedia.org/wiki/Special:FilePath/Bukchon_Hanok_Village.jpg?width=1200')">
+      <article class="hero-slide" style="--slide-index: 0; --hero-image: url('assets/images/hanok-scene.svg')">
+        <img class="hero-photo" src="assets/images/hanok-scene.svg" alt="한옥">
         <div class="hero-copy">
           <p class="ko">자연과 어울리는 한옥</p>
           <p class="en">Hanok in harmony with nature</p>
@@ -98,6 +106,7 @@
         </div>
       </article>
       <article class="hero-slide" style="--slide-index: 1; --hero-image: url('assets/images/hanbok-mannequin.svg')">
+        <img class="hero-photo" src="assets/images/hanbok-mannequin.svg" alt="한복 전시">
         <div class="hero-copy">
           <p class="ko">색과 선이 아름다운 한복</p>
           <p class="en">Hanbok shaped by color and line</p>
@@ -105,7 +114,8 @@
           <h1 class="en">korea's Traditions</h1>
         </div>
       </article>
-      <article class="hero-slide" style="--slide-index: 2; --hero-image: url('https://commons.wikimedia.org/wiki/Special:FilePath/Yut-nori.jpg?width=1200')">
+      <article class="hero-slide" style="--slide-index: 2; --hero-image: url('assets/images/yutnori-scene.svg')">
+        <img class="hero-photo" src="assets/images/yutnori-scene.svg" alt="윷놀이">
         <div class="hero-copy">
           <p class="ko">함께 즐기는 전통놀이</p>
           <p class="en">Traditional games played together</p>
@@ -143,6 +153,6 @@
       });
     })();
   </script>
-  <script type="module" src="./src/app.js?v=one-page-1"></script>
+  <script type="module" src="./src/app.js?v=one-page-2"></script>
 </body>
 </html>
