@@ -98,7 +98,8 @@ function renderHome(state, data) {
   return `
     <section class="hero-screen">
       ${data.heroSlides.map((slide, index) => `
-        <article class="hero-slide" style="--slide-index: ${index}; --hero-image: url('${htmlEscape(slide.image)}')">
+        <article class="hero-slide ${state.activeSlide === index ? 'active' : ''}" style="--slide-index: ${index}; --hero-image: url('${htmlEscape(slide.image)}')">
+          <img class="hero-photo" src="${htmlEscape(slide.image)}" alt="${copy(slide.alt, language)}" ${index === 0 ? 'loading="eager"' : 'loading="lazy"'}>
           <div class="hero-copy">
             <p>${copy(slide.caption, language)}</p>
             <h1>${copy(slide.title, language)}</h1>
@@ -108,7 +109,7 @@ function renderHome(state, data) {
       ${renderTopBar(state)}
       <div class="slide-dots" aria-label="Slides">
         ${data.heroSlides.map((item, index) => `
-          <span style="--dot-index: ${index}" aria-label="${copy(item.caption, language)}"></span>
+          <span class="${state.activeSlide === index ? 'active' : ''}" style="--dot-index: ${index}" aria-label="${copy(item.caption, language)}"></span>
         `).join('')}
       </div>
     </section>
