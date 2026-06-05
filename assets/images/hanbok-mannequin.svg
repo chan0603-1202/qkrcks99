@@ -1,102 +1,126 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="850" viewBox="0 0 1200 850" role="img" aria-labelledby="title desc">
-  <title id="title">Faceless mannequins wearing traditional Korean hanbok</title>
-  <desc id="desc">Two museum-style white mannequins display a women's red and yellow hanbok and a men's navy hanbok with a gat hat.</desc>
+  <title id="title">Museum photo style hanbok mannequins</title>
+  <desc id="desc">museum-photo-hanbok display with a black hanbok on a male mannequin and a green jeogori with hot-pink skirt on a female mannequin.</desc>
   <defs>
-    <linearGradient id="wall" x1="0" x2="1" y1="0" y2="1">
-      <stop offset="0" stop-color="#ddd5ca"/>
-      <stop offset=".55" stop-color="#cfc7ba"/>
-      <stop offset="1" stop-color="#b9b1a5"/>
+    <linearGradient id="museum-photo-hanbok" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ddd6ca"/>
+      <stop offset=".54" stop-color="#cfc7ba"/>
+      <stop offset="1" stop-color="#bdb4a8"/>
     </linearGradient>
-    <linearGradient id="redSkirt" x1=".2" x2=".8" y1="0" y2="1">
-      <stop offset="0" stop-color="#ff3d30"/>
-      <stop offset=".48" stop-color="#d81722"/>
-      <stop offset="1" stop-color="#8f121d"/>
+    <linearGradient id="floor" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#c9c0b2"/>
+      <stop offset="1" stop-color="#aea397"/>
     </linearGradient>
-    <linearGradient id="yellowTop" x1="0" x2="1" y1="0" y2="1">
-      <stop offset="0" stop-color="#fff2a8"/>
-      <stop offset=".55" stop-color="#dfe58f"/>
-      <stop offset="1" stop-color="#b2c96f"/>
+    <linearGradient id="blackSilk" x1=".18" x2=".86" y1=".04" y2="1">
+      <stop offset="0" stop-color="#34323a"/>
+      <stop offset=".38" stop-color="#191920"/>
+      <stop offset=".72" stop-color="#0b0c11"/>
+      <stop offset="1" stop-color="#24222b"/>
     </linearGradient>
-    <linearGradient id="navyRobe" x1=".1" x2=".85" y1="0" y2="1">
-      <stop offset="0" stop-color="#33306c"/>
-      <stop offset=".55" stop-color="#24265a"/>
-      <stop offset="1" stop-color="#11142c"/>
+    <linearGradient id="greenJeogori" x1=".04" x2=".96" y1="0" y2="1">
+      <stop offset="0" stop-color="#c9f05b"/>
+      <stop offset=".38" stop-color="#7fd733"/>
+      <stop offset=".74" stop-color="#38a824"/>
+      <stop offset="1" stop-color="#237c28"/>
     </linearGradient>
-    <linearGradient id="shadow" x1="0" x2="1">
-      <stop offset="0" stop-color="#000" stop-opacity=".04"/>
-      <stop offset=".5" stop-color="#000" stop-opacity=".2"/>
-      <stop offset="1" stop-color="#000" stop-opacity=".04"/>
+    <linearGradient id="pinkChima" x1=".1" x2=".86" y1="0" y2="1">
+      <stop offset="0" stop-color="#ff4fbe"/>
+      <stop offset=".34" stop-color="#f4159b"/>
+      <stop offset=".68" stop-color="#d4077c"/>
+      <stop offset="1" stop-color="#8d0753"/>
     </linearGradient>
-    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#2b241d" flood-opacity=".22"/>
+    <linearGradient id="whiteCloth" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fffefa"/>
+      <stop offset=".62" stop-color="#ece8df"/>
+      <stop offset="1" stop-color="#cfc9bf"/>
+    </linearGradient>
+    <filter id="photoShadow" x="-24%" y="-24%" width="148%" height="148%">
+      <feDropShadow dx="0" dy="20" stdDeviation="16" flood-color="#2c251f" flood-opacity=".2"/>
     </filter>
-    <pattern id="silk" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M0 18 C10 10 22 10 40 18" fill="none" stroke="#fff" stroke-opacity=".12" stroke-width="2"/>
-      <path d="M0 34 C12 26 24 26 40 34" fill="none" stroke="#000" stroke-opacity=".06" stroke-width="1"/>
+    <filter id="clothBlur" x="-8%" y="-8%" width="116%" height="116%">
+      <feGaussianBlur stdDeviation=".35"/>
+    </filter>
+    <pattern id="subtleSilk" width="56" height="56" patternUnits="userSpaceOnUse">
+      <path d="M-4 18 C12 5 32 5 60 18" fill="none" stroke="#fff" stroke-opacity=".12" stroke-width="2"/>
+      <path d="M-4 42 C14 30 34 30 60 42" fill="none" stroke="#000" stroke-opacity=".07" stroke-width="1"/>
+    </pattern>
+    <pattern id="goldMotif" width="90" height="90" patternUnits="userSpaceOnUse">
+      <path d="M45 20 C57 33 57 55 45 68 C33 55 33 33 45 20Z" fill="none" stroke="#c59b45" stroke-width="2" stroke-opacity=".24"/>
+      <circle cx="45" cy="45" r="4" fill="#c59b45" fill-opacity=".18"/>
     </pattern>
   </defs>
 
-  <rect width="1200" height="850" fill="url(#wall)"/>
-  <rect y="710" width="1200" height="140" fill="#c8beb1"/>
-  <ellipse cx="390" cy="754" rx="245" ry="34" fill="url(#shadow)"/>
-  <ellipse cx="850" cy="754" rx="200" ry="31" fill="url(#shadow)"/>
+  <rect width="1200" height="850" fill="url(#museum-photo-hanbok)"/>
+  <rect y="695" width="1200" height="155" fill="url(#floor)"/>
+  <ellipse cx="350" cy="737" rx="210" ry="32" fill="#2b241f" opacity=".16"/>
+  <ellipse cx="816" cy="742" rx="252" ry="38" fill="#2b241f" opacity=".18"/>
+  <path d="M0 692 H1200" stroke="#b2a89b" stroke-width="3" opacity=".45"/>
 
-  <g filter="url(#softShadow)">
-    <!-- Women's hanbok mannequin -->
-    <g transform="translate(165 64)">
-      <path d="M245 63 C218 63 199 84 199 116 L199 183 L290 183 L290 116 C290 84 271 63 245 63Z" fill="#f8f7f2"/>
-      <path d="M204 109 C214 86 229 75 245 75 C262 75 277 86 286 109 L286 154 C264 144 226 144 204 154Z" fill="#f8f7f2"/>
-      <path d="M194 156 L290 156 L310 230 L177 230Z" fill="#f8f7f2"/>
-      <path d="M180 215 C147 249 126 305 121 377 L175 398 C194 337 215 287 243 248Z" fill="#f8f7f2"/>
-      <path d="M310 215 C344 249 365 305 370 377 L315 398 C297 337 276 287 248 248Z" fill="#f8f7f2"/>
-      <path d="M206 95 C215 61 234 41 252 43 C290 47 311 60 312 92 C286 86 262 82 206 95Z" fill="#111315"/>
-      <path d="M188 93 C211 87 255 87 310 95 C309 72 293 58 260 53 C227 48 199 60 188 93Z" fill="#17191c"/>
-      <circle cx="207" cy="87" r="7" fill="#c59b45"/>
-      <circle cx="286" cy="88" r="7" fill="#24715f"/>
-      <circle cx="248" cy="66" r="6" fill="#9f3b36"/>
+  <g filter="url(#photoShadow)">
+    <g id="black-hanbok-mannequin" transform="translate(130 58)">
+      <ellipse cx="216" cy="58" rx="164" ry="18" fill="#15161a" opacity=".84"/>
+      <path d="M72 58 C122 34 303 33 360 59 C307 84 122 83 72 58Z" fill="#1f2025"/>
+      <path d="M180 3 H252 L266 96 H163Z" fill="#22242a"/>
+      <path d="M189 13 H242 L253 85 H177Z" fill="#30313a"/>
+      <path d="M211 90 C182 90 159 112 159 145 L159 219 H266 L266 145 C266 112 240 90 211 90Z" fill="url(#whiteCloth)"/>
+      <path d="M167 135 C179 111 195 100 211 100 C228 100 247 112 258 137 L258 180 C236 169 188 169 167 180Z" fill="#f6f4ef"/>
+      <path d="M148 204 L279 204 L298 272 L128 272Z" fill="url(#whiteCloth)"/>
 
-      <path d="M138 230 L493 230 C449 316 430 423 431 706 L81 706 C78 430 96 314 138 230Z" fill="url(#redSkirt)"/>
-      <path d="M138 230 L493 230 C449 316 430 423 431 706 L81 706 C78 430 96 314 138 230Z" fill="url(#silk)" opacity=".35"/>
-      <path d="M174 226 L314 222 L335 392 L133 392Z" fill="url(#yellowTop)"/>
-      <path d="M318 222 L428 250 L387 410 L322 383Z" fill="#d9e991"/>
-      <path d="M172 222 L66 252 L107 409 L176 382Z" fill="#d9e991"/>
-      <path d="M185 225 L256 382 L315 224 L277 213 L246 303 L222 214Z" fill="#fff8e8"/>
-      <path d="M210 342 H338 V374 H202Z" fill="#d1a342"/>
-      <path d="M198 382 C224 401 270 407 333 382" fill="none" stroke="#e7c76e" stroke-width="5" opacity=".65"/>
-      <path d="M252 374 L252 520" stroke="#0f5c78" stroke-width="8"/>
-      <path d="M268 374 L268 520" stroke="#bf2e37" stroke-width="8"/>
-      <path d="M236 374 L236 520" stroke="#f0c94d" stroke-width="8"/>
-      <circle cx="252" cy="528" r="18" fill="#c59b45"/>
-      <path d="M128 270 C102 350 91 462 92 694" fill="none" stroke="#ff8a80" stroke-opacity=".34" stroke-width="4"/>
-      <path d="M210 405 C198 510 197 605 198 706" fill="none" stroke="#ffb0a8" stroke-opacity=".28" stroke-width="3"/>
-      <path d="M340 405 C356 510 359 606 358 706" fill="none" stroke="#83101a" stroke-opacity=".38" stroke-width="4"/>
-      <path d="M112 409 C145 433 168 430 187 396" fill="none" stroke="#f8f7f2" stroke-width="10" stroke-linecap="round"/>
-      <path d="M365 409 C331 433 309 430 289 396" fill="none" stroke="#f8f7f2" stroke-width="10" stroke-linecap="round"/>
+      <path d="M104 255 C62 344 55 499 86 690 L342 690 C387 508 387 344 342 255 C274 226 171 226 104 255Z" fill="url(#blackSilk)"/>
+      <path d="M104 255 C62 344 55 499 86 690 L342 690 C387 508 387 344 342 255 C274 226 171 226 104 255Z" fill="url(#goldMotif)" opacity=".52"/>
+      <path d="M106 256 L30 312 L72 500 L127 476 C124 384 130 312 159 252Z" fill="#1f2028"/>
+      <path d="M341 256 L421 312 L376 502 L320 477 C323 384 314 313 282 252Z" fill="#151720"/>
+      <path d="M157 247 L215 389 L273 247 L246 232 L215 318 L184 232Z" fill="#f4efe4"/>
+      <path d="M182 232 L215 318 L246 232 L268 243 L217 392 L136 244Z" fill="#11131b" opacity=".86"/>
+      <path d="M97 350 H341 V389 H96Z" fill="#0e1016"/>
+      <path d="M170 388 H204 V692 H135 C133 566 142 466 170 388Z" fill="#11131a" opacity=".72"/>
+      <path d="M226 388 H260 C291 470 302 568 299 692 H232Z" fill="#11131a" opacity=".7"/>
+      <path d="M70 502 C98 523 121 518 136 480" fill="none" stroke="#f6f4ef" stroke-width="11" stroke-linecap="round"/>
+      <path d="M378 502 C350 523 327 518 313 480" fill="none" stroke="#f6f4ef" stroke-width="11" stroke-linecap="round"/>
+      <path d="M127 690 H189 L180 752 H119Z" fill="#e8e3d8"/>
+      <path d="M245 690 H307 L314 752 H253Z" fill="#e8e3d8"/>
+      <path d="M99 755 C134 726 177 725 207 756 C190 783 113 783 99 755Z" fill="#191a20"/>
+      <path d="M231 755 C266 726 308 725 340 756 C322 783 247 783 231 755Z" fill="#191a20"/>
+      <path d="M108 751 C140 734 175 734 200 754" fill="none" stroke="#f2ead8" stroke-width="5"/>
+      <path d="M239 751 C272 734 306 734 332 754" fill="none" stroke="#f2ead8" stroke-width="5"/>
+      <path d="M124 302 C96 392 91 525 103 662" fill="none" stroke="#fff" stroke-opacity=".08" stroke-width="5"/>
+      <path d="M310 302 C350 402 355 535 331 662" fill="none" stroke="#fff" stroke-opacity=".07" stroke-width="5"/>
     </g>
 
-    <!-- Men's hanbok mannequin -->
-    <g transform="translate(665 48)">
-      <ellipse cx="188" cy="46" rx="137" ry="17" fill="#1a1b1f" opacity=".82"/>
-      <path d="M91 44 C126 29 275 28 313 45 C280 62 126 63 91 44Z" fill="#1d1f23"/>
-      <path d="M160 2 H229 L244 92 H145Z" fill="#22242a"/>
-      <path d="M166 10 H223 L233 83 H156Z" fill="#2c2e36"/>
-      <path d="M191 78 C162 78 141 102 141 134 L141 202 L245 202 L245 134 C245 102 221 78 191 78Z" fill="#f8f7f2"/>
-      <path d="M150 121 C163 100 176 90 191 90 C207 90 222 101 234 122 L234 166 C213 158 173 158 150 166Z" fill="#f8f7f2"/>
-      <path d="M130 180 L254 180 L275 248 L110 248Z" fill="#f8f7f2"/>
-      <path d="M92 240 L330 240 C373 337 373 486 339 662 L68 662 C45 486 47 337 92 240Z" fill="url(#navyRobe)"/>
-      <path d="M92 240 L330 240 C373 337 373 486 339 662 L68 662 C45 486 47 337 92 240Z" fill="url(#silk)" opacity=".22"/>
-      <path d="M98 241 L29 286 L67 478 L119 459 C118 364 122 292 148 241Z" fill="#34316e"/>
-      <path d="M327 242 L404 289 L362 481 L309 459 C308 364 303 292 278 241Z" fill="#30306b"/>
-      <path d="M141 238 L196 367 L251 238 L230 226 L196 300 L162 226Z" fill="#11142c"/>
-      <path d="M101 336 H328 V374 H100Z" fill="#151625"/>
-      <path d="M152 374 H190 V664 H134 C132 548 138 456 152 374Z" fill="#151625" opacity=".82"/>
-      <path d="M218 374 H257 C274 465 279 550 277 664 H225 Z" fill="#151625" opacity=".82"/>
-      <path d="M113 662 H172 L164 731 H107Z" fill="#1e3568"/>
-      <path d="M236 662 H296 L302 731 H244Z" fill="#1e3568"/>
-      <path d="M66 481 C93 497 114 493 130 460" fill="none" stroke="#f8f7f2" stroke-width="10" stroke-linecap="round"/>
-      <path d="M363 481 C337 498 317 493 301 460" fill="none" stroke="#f8f7f2" stroke-width="10" stroke-linecap="round"/>
-      <path d="M86 735 C113 714 147 713 176 735 C167 760 101 760 86 735Z" fill="#f0e7d5" stroke="#8d6d3c" stroke-width="5"/>
-      <path d="M233 735 C263 714 296 714 324 735 C309 760 248 760 233 735Z" fill="#f0e7d5" stroke="#8d6d3c" stroke-width="5"/>
+    <g id="hot-pink-skirt-hanbok-mannequin" transform="translate(575 54)">
+      <path d="M260 54 C231 54 209 77 209 111 L209 190 H316 L316 111 C316 77 291 54 260 54Z" fill="url(#whiteCloth)"/>
+      <path d="M218 98 C230 75 246 65 260 65 C279 65 300 79 309 101 L309 146 C285 136 241 136 218 146Z" fill="#f8f6f1"/>
+      <path d="M198 176 L327 176 L354 250 L176 250Z" fill="url(#whiteCloth)"/>
+      <path d="M212 79 C228 43 252 31 272 35 C316 44 342 61 344 98 C315 87 282 80 212 79Z" fill="#111316"/>
+      <ellipse cx="276" cy="83" rx="74" ry="19" fill="#1a1b1f"/>
+      <path d="M230 67 C256 33 305 35 333 68 C305 58 259 57 230 67Z" fill="#1b1d20"/>
+      <circle cx="250" cy="60" r="6" fill="#c59b45"/>
+      <circle cx="278" cy="51" r="7" fill="#9f3b36"/>
+      <circle cx="307" cy="62" r="6" fill="#24715f"/>
+
+      <path d="M112 250 L408 250 C486 354 504 511 476 712 L58 712 C35 513 47 356 112 250Z" fill="url(#pinkChima)"/>
+      <path d="M112 250 L408 250 C486 354 504 511 476 712 L58 712 C35 513 47 356 112 250Z" fill="url(#subtleSilk)" opacity=".42"/>
+      <path d="M144 252 C101 375 93 520 111 704" fill="none" stroke="#ff9edb" stroke-opacity=".34" stroke-width="9" filter="url(#clothBlur)"/>
+      <path d="M235 268 C215 390 215 552 226 710" fill="none" stroke="#ffb5e2" stroke-opacity=".3" stroke-width="7"/>
+      <path d="M376 270 C423 394 434 542 410 704" fill="none" stroke="#8e064f" stroke-opacity=".24" stroke-width="12"/>
+      <path d="M150 225 L334 222 L374 375 L134 375Z" fill="url(#greenJeogori)"/>
+      <path d="M336 224 L451 280 L405 438 L340 406Z" fill="#4dbb2d"/>
+      <path d="M149 224 L50 279 L91 434 L153 405Z" fill="#bfea62"/>
+      <path d="M179 224 L260 388 L334 223 L292 211 L262 304 L224 211Z" fill="#fff7e8"/>
+      <path d="M286 232 L328 252 L284 329 L260 304Z" fill="#244edb"/>
+      <path d="M219 225 L260 304 L232 336 L178 242Z" fill="#e7336d"/>
+      <path d="M178 344 H352 V378 H176Z" fill="#2454d9"/>
+      <path d="M246 377 L230 530" stroke="#2454d9" stroke-width="9"/>
+      <path d="M265 377 L276 532" stroke="#e7336d" stroke-width="9"/>
+      <path d="M288 377 L312 525" stroke="#f4e0ab" stroke-width="9"/>
+      <circle cx="278" cy="539" r="18" fill="#c59b45"/>
+      <path d="M92 438 C124 459 148 451 162 407" fill="none" stroke="#f7f4ee" stroke-width="10" stroke-linecap="round"/>
+      <path d="M406 438 C373 459 351 451 337 407" fill="none" stroke="#f7f4ee" stroke-width="10" stroke-linecap="round"/>
+      <path d="M74 714 H459" stroke="#7d064a" stroke-width="4" opacity=".5"/>
+      <path d="M158 252 C176 312 183 365 178 423" fill="none" stroke="#fff" stroke-opacity=".2" stroke-width="5"/>
+      <path d="M343 252 C362 318 365 372 360 424" fill="none" stroke="#0d5a19" stroke-opacity=".22" stroke-width="5"/>
     </g>
   </g>
+
+  <rect width="1200" height="850" fill="none" stroke="#ffffff" stroke-opacity=".18" stroke-width="2"/>
 </svg>
