@@ -3,8 +3,8 @@ const labels = {
     menu: '메뉴',
     close: '닫기',
     home: '처음 화면',
-    quiz: '문화 퀴즈',
-    chooseQuiz: '퀴즈 선택',
+    quiz: '퀴즈',
+    chooseQuiz: '퀴즈',
     start: '들어가기',
     backHome: '처음으로',
     review: '퀴즈로 복습하기',
@@ -14,7 +14,6 @@ const labels = {
     next: '다음',
     explore: '둘러보기',
     menuTitle: '한국 전통문화',
-    optionalQuiz: '원하는 사람만 들어가는 복습 공간',
     keyWords: '핵심 단어',
     questionCount: '문항',
     quizCategories: {
@@ -28,8 +27,8 @@ const labels = {
     menu: 'Menu',
     close: 'Close',
     home: 'Home',
-    quiz: 'Culture Quiz',
-    chooseQuiz: 'Choose a Quiz',
+    quiz: 'Quiz',
+    chooseQuiz: 'Quiz',
     start: 'Open',
     backHome: 'Home',
     review: 'Review with Quiz',
@@ -39,7 +38,6 @@ const labels = {
     next: 'Next',
     explore: 'Explore',
     menuTitle: 'Korean Tradition',
-    optionalQuiz: 'Optional review and play space',
     keyWords: 'Key Words',
     questionCount: 'questions',
     quizCategories: {
@@ -116,7 +114,7 @@ function renderHome(state, data) {
 
 function renderMenu(state, data) {
   const { language } = state;
-  const menuClass = state.menuOpen ? 'menu-panel open' : 'menu-panel';
+  const menuClass = state.menuOpen ? 'menu-panel dancheong-edge open' : 'menu-panel dancheong-edge';
   return `
     <aside class="${menuClass}" aria-hidden="${state.menuOpen ? 'false' : 'true'}">
       <div class="menu-head">
@@ -139,7 +137,6 @@ function renderMenu(state, data) {
         <button class="menu-card quiz-card" data-route="quiz" type="button">
           <span>
             <strong>${labels[language].quiz}</strong>
-            <small>${labels[language].optionalQuiz}</small>
           </span>
         </button>
       </nav>
@@ -161,7 +158,7 @@ function renderSection(state, data) {
       <p class="summary">${copy(section.summary, language)}</p>
       <div class="info-grid">
         ${section.cards.map((card) => `
-          <article class="info-card">
+          <article class="info-card dancheong-edge">
             <h2>${copy(card.title, language)}</h2>
             <p>${copy(card.body, language)}</p>
           </article>
@@ -193,7 +190,7 @@ function renderQuizChooser(state, data) {
       <h1>${labels[language].chooseQuiz}</h1>
       <div class="quiz-options">
         ${categories.map((id) => `
-          <button class="quiz-option" data-quiz-category="${id}" type="button">
+          <button class="quiz-option dancheong-edge" data-quiz-category="${id}" type="button">
             <strong>${labels[language].quizCategories[id]}</strong>
             <span>${data.quizBank[id].length} ${labels[language].questionCount}</span>
           </button>
@@ -251,9 +248,9 @@ export function renderApp(state, data) {
   const body = state.route === 'section'
     ? renderSection(state, data)
     : state.route === 'quiz' && state.quiz?.complete
-      ? renderQuizResult(state, data)
+      ? renderQuizResult(state)
       : state.route === 'quiz' && state.quiz
-        ? renderQuizQuestion(state, data)
+        ? renderQuizQuestion(state)
         : state.route === 'quiz'
           ? renderQuizChooser(state, data)
           : renderHome(state, data);
