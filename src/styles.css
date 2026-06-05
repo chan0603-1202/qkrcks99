@@ -66,8 +66,9 @@ a:focus-visible {
 
 #app {
   min-height: 100svh;
+  height: 100dvh;
   position: relative;
-  overflow-x: hidden;
+  overflow: hidden;
   background:
     linear-gradient(90deg, rgba(159, 59, 54, 0.24), transparent 2px) left top / 16px 100% no-repeat,
     linear-gradient(90deg, transparent calc(100% - 2px), rgba(36, 113, 95, 0.3) calc(100% - 2px)) right top / 16px 100% no-repeat,
@@ -77,6 +78,7 @@ a:focus-visible {
 .hero-screen {
   position: relative;
   min-height: 100svh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -84,7 +86,18 @@ a:focus-visible {
   background: var(--navy);
 }
 
-.hero-screen::before {
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  opacity: 0;
+  animation: hero-fade 13.5s ease-in-out infinite;
+  animation-delay: calc(var(--slide-index) * 4.5s);
+}
+
+.hero-slide::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -96,7 +109,7 @@ a:focus-visible {
   transform: scale(1.03);
 }
 
-.hero-screen::after {
+.hero-slide::after {
   content: "";
   position: absolute;
   inset: auto 0 0;
@@ -105,6 +118,18 @@ a:focus-visible {
     linear-gradient(135deg, transparent 0 46%, rgba(197, 155, 69, 0.18) 46% 48%, transparent 48%),
     linear-gradient(45deg, transparent 0 44%, rgba(255, 250, 240, 0.12) 44% 46%, transparent 46%);
   opacity: 0.55;
+}
+
+@keyframes hero-fade {
+  0%,
+  33% {
+    opacity: 1;
+  }
+
+  40%,
+  100% {
+    opacity: 0;
+  }
 }
 
 .top-bar {
@@ -209,11 +234,27 @@ a:focus-visible {
   height: 8px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.46);
+  animation: dot-fade 13.5s ease-in-out infinite;
+  animation-delay: calc(var(--dot-index) * 4.5s);
 }
 
 .slide-dots span.active {
   width: 30px;
   background: #fffaf0;
+}
+
+@keyframes dot-fade {
+  0%,
+  33% {
+    width: 30px;
+    background: #fffaf0;
+  }
+
+  40%,
+  100% {
+    width: 8px;
+    background: rgba(255, 255, 255, 0.46);
+  }
 }
 
 .menu-scrim {
@@ -370,6 +411,9 @@ a:focus-visible {
 .content-page,
 .quiz-page {
   min-height: 100svh;
+  height: 100dvh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   padding: 86px 18px 30px;
   background:
     linear-gradient(90deg, rgba(159, 59, 54, 0.22), transparent 2px) left top / 14px 100% no-repeat,
