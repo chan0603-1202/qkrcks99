@@ -6,6 +6,7 @@ import {
   navigateTo,
   nextQuestion,
   openMenu,
+  setActiveSlide,
   setLanguage,
   startQuiz,
 } from './state.js?v=one-page-2';
@@ -110,5 +111,14 @@ root.addEventListener('click', (event) => {
   if (handleQuizStart(target)) return;
   handleRoute(target);
 });
+
+setInterval(() => {
+  if (state.route !== 'home' || state.menuOpen) {
+    return;
+  }
+
+  state = setActiveSlide(state, (state.activeSlide + 1) % data.heroSlides.length);
+  render();
+}, 4500);
 
 render();
