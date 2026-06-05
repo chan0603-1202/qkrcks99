@@ -14,9 +14,9 @@
 <body data-lang="ko">
   <main id="app" aria-live="polite">
     <header id="home" class="top-bar">
-      <a class="menu-button" href="#menuPanel" aria-label="메뉴">
+      <button class="menu-button" type="button" data-fallback-action="open-menu" aria-controls="menuPanel" aria-label="메뉴">
         <span></span><span></span><span></span>
-      </a>
+      </button>
       <div class="language-toggle" aria-label="language">
         <button class="active" type="button">KR</button>
         <button type="button">EN</button>
@@ -39,7 +39,7 @@
           <p class="ko">둘러보기</p><p class="en">Explore</p>
           <h2 class="ko">한국 전통문화</h2><h2 class="en">Korean Tradition</h2>
         </div>
-        <a class="close-button" href="#home"><span class="ko">닫기</span><span class="en">Close</span></a>
+        <button class="close-button" type="button" data-fallback-action="close-menu"><span class="ko">닫기</span><span class="en">Close</span></button>
       </div>
       <nav class="menu-cards">
         <a class="menu-card" href="#houses">
@@ -87,6 +87,18 @@
       <h1 class="ko">퀴즈</h1><h1 class="en">Quiz</h1>
     </section>
   </main>
+  <script>
+    (() => {
+      const app = document.querySelector('#app');
+      const panel = document.querySelector('#menuPanel');
+      app?.addEventListener('click', (event) => {
+        const button = event.target.closest('[data-fallback-action]');
+        if (!button || !panel) return;
+        event.preventDefault();
+        panel.classList.toggle('open', button.dataset.fallbackAction === 'open-menu');
+      });
+    })();
+  </script>
   <script type="module" src="./src/app.js"></script>
 </body>
 </html>
