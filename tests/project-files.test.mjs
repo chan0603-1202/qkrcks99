@@ -40,7 +40,15 @@ describe('project structure', () => {
     const html = readFileSync('index.html', 'utf8');
     assert.match(html, /<main id="app"/);
     assert.match(html, /<style>/);
-    assert.match(html, /<script>/);
+    assert.match(html, /<script type="module">/);
     assert.match(html, /한국의 전통/);
+  });
+
+  it('includes visible fallback content before JavaScript runs', () => {
+    const html = readFileSync('index.html', 'utf8');
+    assert.doesNotMatch(html, /<main id="app"[^>]*>\s*<\/main>/);
+    assert.match(html, /data-view="fallback"/);
+    assert.match(html, /href="#houses"/);
+    assert.match(html, /href="#quiz"/);
   });
 });
