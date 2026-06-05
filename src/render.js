@@ -95,17 +95,20 @@ function renderTopBar(state) {
 
 function renderHome(state, data) {
   const { language } = state;
-  const slide = data.heroSlides[state.activeSlide % data.heroSlides.length];
   return `
-    <section class="hero-screen" style="--hero-image: url('${htmlEscape(slide.image)}')">
+    <section class="hero-screen">
+      ${data.heroSlides.map((slide, index) => `
+        <article class="hero-slide" style="--slide-index: ${index}; --hero-image: url('${htmlEscape(slide.image)}')">
+          <div class="hero-copy">
+            <p>${copy(slide.caption, language)}</p>
+            <h1>${copy(slide.title, language)}</h1>
+          </div>
+        </article>
+      `).join('')}
       ${renderTopBar(state)}
-      <div class="hero-copy">
-        <p>${copy(slide.caption, language)}</p>
-        <h1>${copy(slide.title, language)}</h1>
-      </div>
       <div class="slide-dots" aria-label="Slides">
         ${data.heroSlides.map((item, index) => `
-          <span class="${index === state.activeSlide ? 'active' : ''}" aria-label="${copy(item.caption, language)}"></span>
+          <span style="--dot-index: ${index}" aria-label="${copy(item.caption, language)}"></span>
         `).join('')}
       </div>
     </section>
