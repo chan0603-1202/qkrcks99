@@ -1,4 +1,4 @@
-import { heroSlides, quizBank, sections } from './content.js';
+import { heroSlides, quizBank, sections } from './content.js?v=menu-overlay-3';
 import {
   answerQuestion,
   closeMenu,
@@ -9,8 +9,8 @@ import {
   setActiveSlide,
   setLanguage,
   startQuiz,
-} from './state.js';
-import { renderApp } from './render.js';
+} from './state.js?v=menu-overlay-3';
+import { renderApp } from './render.js?v=menu-overlay-3';
 
 const root = document.querySelector('#app');
 const data = { heroSlides, sections, quizBank };
