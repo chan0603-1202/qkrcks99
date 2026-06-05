@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#07162a">
   <title>한국의 전통</title>
-  <link rel="stylesheet" href="./src/styles.css">
+  <link rel="stylesheet" href="./src/styles.css?v=menu-overlay-2">
   <style>
     :root { --navy: #12284c; }
     body { background: var(--navy); }
@@ -23,17 +23,8 @@
       </div>
     </header>
 
-    <section class="hero-screen" data-view="fallback" style="--hero-image: url('https://commons.wikimedia.org/wiki/Special:FilePath/Bukchon_Hanok_Village.jpg?width=1200')">
-      <div class="hero-copy">
-        <p class="ko">자연과 어울리는 한옥</p>
-        <p class="en">Hanok in harmony with nature</p>
-        <h1 class="ko">한국의 전통</h1>
-        <h1 class="en">korea's Traditions</h1>
-      </div>
-      <div class="slide-dots" aria-hidden="true"><span class="active"></span><span></span><span></span></div>
-    </section>
-
-    <aside id="menuPanel" class="menu-panel dancheong-edge" aria-label="site menu">
+    <button class="menu-scrim" type="button" data-fallback-action="close-menu" aria-label="닫기"></button>
+    <aside id="menuPanel" class="menu-panel dancheong-edge" aria-label="site menu" aria-hidden="true">
       <div class="menu-head">
         <div>
           <p class="ko">둘러보기</p><p class="en">Explore</p>
@@ -57,6 +48,16 @@
         <a class="menu-card quiz-card" href="#quiz"><span><strong class="ko">퀴즈</strong><strong class="en">Quiz</strong></span></a>
       </nav>
     </aside>
+
+    <section class="hero-screen" data-view="fallback" style="--hero-image: url('https://commons.wikimedia.org/wiki/Special:FilePath/Bukchon_Hanok_Village.jpg?width=1200')">
+      <div class="hero-copy">
+        <p class="ko">자연과 어울리는 한옥</p>
+        <p class="en">Hanok in harmony with nature</p>
+        <h1 class="ko">한국의 전통</h1>
+        <h1 class="en">korea's Traditions</h1>
+      </div>
+      <div class="slide-dots" aria-hidden="true"><span class="active"></span><span></span><span></span></div>
+    </section>
 
     <section id="houses" class="content-page">
       <img class="section-hero" src="https://commons.wikimedia.org/wiki/Special:FilePath/Bukchon_Hanok_Village.jpg?width=900" alt="한옥">
@@ -91,14 +92,28 @@
     (() => {
       const app = document.querySelector('#app');
       const panel = document.querySelector('#menuPanel');
+      const scrim = document.querySelector('.menu-scrim');
+      const setMenu = (isOpen) => {
+        panel?.classList.toggle('open', isOpen);
+        panel?.setAttribute('aria-hidden', String(!isOpen));
+        scrim?.classList.toggle('open', isOpen);
+        document.body.classList.toggle('menu-open', isOpen);
+      };
+
       app?.addEventListener('click', (event) => {
         const button = event.target.closest('[data-fallback-action]');
-        if (!button || !panel) return;
-        event.preventDefault();
-        panel.classList.toggle('open', button.dataset.fallbackAction === 'open-menu');
+        if (button) {
+          event.preventDefault();
+          setMenu(button.dataset.fallbackAction === 'open-menu');
+          return;
+        }
+
+        if (event.target.closest('.menu-card')) {
+          setMenu(false);
+        }
       });
     })();
   </script>
-  <script type="module" src="./src/app.js"></script>
+  <script type="module" src="./src/app.js?v=menu-overlay-2"></script>
 </body>
 </html>
