@@ -4,11 +4,13 @@
   --paper: #f7f1e5;
   --panel: #fffaf0;
   --navy: #12284c;
+  --navy-deep: #07162a;
   --navy-soft: #e7edf5;
   --red: #9f3b36;
   --blue: #1f5f8b;
   --gold: #c59b45;
   --green: #24715f;
+  --dancheong: linear-gradient(90deg, var(--red), var(--gold), var(--green), var(--blue), var(--red));
   --line: rgba(18, 40, 76, 0.14);
   --shadow: 0 18px 48px rgba(18, 40, 76, 0.24);
   color: var(--ink);
@@ -23,7 +25,9 @@
 body {
   min-width: 320px;
   margin: 0;
-  background: var(--paper);
+  background:
+    radial-gradient(circle at 20% 0%, rgba(197, 155, 69, 0.16), transparent 30%),
+    linear-gradient(180deg, var(--navy-deep), var(--navy) 46%, #0e213f);
 }
 
 button {
@@ -35,8 +39,19 @@ button:focus-visible {
   outline-offset: 3px;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
 #app {
   min-height: 100svh;
+  background: var(--paper);
 }
 
 .hero-screen {
@@ -54,7 +69,7 @@ button:focus-visible {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(180deg, rgba(11, 22, 42, 0.24), rgba(11, 22, 42, 0.84)),
+    linear-gradient(180deg, rgba(7, 22, 42, 0.18), rgba(7, 22, 42, 0.9)),
     var(--hero-image);
   background-position: center;
   background-size: cover;
@@ -67,9 +82,9 @@ button:focus-visible {
   inset: auto 0 0;
   height: 42%;
   background:
-    linear-gradient(135deg, transparent 0 46%, rgba(197, 155, 69, 0.18) 46% 48%, transparent 48%),
+    linear-gradient(135deg, transparent 0 46%, rgba(197, 155, 69, 0.22) 46% 48%, transparent 48%),
     linear-gradient(45deg, transparent 0 44%, rgba(255, 250, 240, 0.12) 44% 46%, transparent 46%);
-  opacity: 0.55;
+  opacity: 0.62;
 }
 
 .top-bar {
@@ -86,6 +101,7 @@ button:focus-visible {
 }
 
 .top-bar button,
+.top-bar a,
 .language-toggle {
   pointer-events: auto;
 }
@@ -206,8 +222,22 @@ button:focus-visible {
   transition: transform 240ms ease;
 }
 
-.menu-panel.open {
+.menu-panel.open,
+.menu-panel:target {
   transform: translateX(0);
+}
+
+.dancheong-edge {
+  position: relative;
+}
+
+.dancheong-edge::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: var(--dancheong);
+  opacity: 0.82;
 }
 
 .menu-head {
@@ -216,7 +246,7 @@ button:focus-visible {
   justify-content: space-between;
   gap: 16px;
   margin-bottom: 18px;
-  border-bottom: 4px double var(--gold);
+  border-bottom: 3px double var(--gold);
   padding-bottom: 16px;
 }
 
@@ -249,7 +279,7 @@ button:focus-visible {
 
 .menu-card {
   min-height: 112px;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(197, 155, 69, 0.36);
   border-radius: 8px;
   padding: 0;
   overflow: hidden;
@@ -260,13 +290,25 @@ button:focus-visible {
   box-shadow: 0 8px 20px rgba(18, 40, 76, 0.1);
 }
 
+.menu-card::before {
+  content: "";
+  display: block;
+  grid-row: 1;
+  grid-column: 1 / -1;
+  height: 3px;
+  background: var(--dancheong);
+  opacity: 0.72;
+}
+
 .menu-card img {
+  grid-row: 2;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
 .menu-card span {
+  grid-row: 2;
   display: grid;
   align-content: center;
   gap: 6px;
@@ -452,7 +494,7 @@ button:focus-visible {
     min-height: 100svh;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 0 0 1px rgba(18, 40, 76, 0.1);
+    box-shadow: 0 0 0 1px rgba(255, 250, 240, 0.18), 0 28px 90px rgba(0, 0, 0, 0.34);
   }
 
   .top-bar,
