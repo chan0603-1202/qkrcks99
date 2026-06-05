@@ -114,9 +114,13 @@ function renderHome(state, data) {
 
 function renderMenu(state, data) {
   const { language } = state;
-  const menuClass = state.menuOpen ? 'menu-panel dancheong-edge open' : 'menu-panel dancheong-edge';
+  if (!state.menuOpen) {
+    return '';
+  }
+
   return `
-    <aside class="${menuClass}" aria-hidden="${state.menuOpen ? 'false' : 'true'}">
+    <button class="menu-scrim open" data-action="close-menu" type="button" aria-label="${labels[language].close}"></button>
+    <aside class="menu-panel dancheong-edge open" aria-hidden="false">
       <div class="menu-head">
         <div>
           <p>${labels[language].explore}</p>
@@ -141,7 +145,6 @@ function renderMenu(state, data) {
         </button>
       </nav>
     </aside>
-    <button class="${state.menuOpen ? 'menu-scrim open' : 'menu-scrim'}" data-action="close-menu" type="button" aria-label="${labels[language].close}"></button>
   `;
 }
 
