@@ -1,4 +1,4 @@
-import { heroSlides, quizBank, sections } from './content.js?v=one-page-1';
+import { heroSlides, quizBank, sections } from './content.js?v=one-page-2';
 import {
   answerQuestion,
   closeMenu,
@@ -8,11 +8,30 @@ import {
   openMenu,
   setLanguage,
   startQuiz,
-} from './state.js?v=one-page-1';
-import { renderApp } from './render.js?v=one-page-1';
+} from './state.js?v=one-page-2';
+import { renderApp } from './render.js?v=one-page-2';
 
 const root = document.querySelector('#app');
 const data = { heroSlides, sections, quizBank };
+const localImages = {
+  houses: 'assets/images/hanok-scene.svg',
+  hanok: 'assets/images/hanok-scene.svg',
+  hanbok: 'assets/images/hanbok-mannequin.svg',
+  games: 'assets/images/yutnori-scene.svg',
+};
+
+for (const slide of data.heroSlides) {
+  slide.image = localImages[slide.id] || slide.image;
+}
+
+for (const section of data.sections) {
+  const image = localImages[section.id];
+  if (image) {
+    section.menuImage = image;
+    section.heroImage = image;
+  }
+}
+
 let state = createAppState();
 
 function render() {
