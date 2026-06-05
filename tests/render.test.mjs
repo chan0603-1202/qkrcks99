@@ -10,8 +10,8 @@ describe('renderApp', () => {
     assert.match(html, /class="hero-screen"/);
     assert.match(html, /data-action="open-menu"/);
     assert.match(html, /한국의 전통/);
-    assert.match(html, /class="menu-panel[^"]*"/);
-    assert.match(html, /aria-hidden="true"/);
+    assert.doesNotMatch(html, /class="menu-card/);
+    assert.doesNotMatch(html, /class="menu-panel/);
   });
 
   it('renders the English central copy when language is changed', () => {
