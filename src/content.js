@@ -10,7 +10,7 @@ const heroTitle = {
 
 const images = {
   hanok: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bukchon_Hanok_Village.jpg?width=1200',
-  hanbok: 'https://commons.wikimedia.org/wiki/Special:FilePath/Hanbok_%28%ED%95%9C%EB%B3%B5%29_%284261102177%29.jpg?width=900',
+  hanbok: 'assets/images/hanbok-mannequin.svg',
   games: 'https://commons.wikimedia.org/wiki/Special:FilePath/Yut-nori.jpg?width=1200',
 };
 
