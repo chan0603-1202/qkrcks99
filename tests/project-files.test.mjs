@@ -38,7 +38,8 @@ describe('project structure', () => {
   it('mounts the web app from index.html', () => {
     const html = readFileSync('index.html', 'utf8');
     assert.match(html, /<main id="app"/);
-    assert.match(html, /src="src\/app\.js"/);
-    assert.match(html, /href="src\/styles\.css"/);
+    assert.match(html, /<style>/);
+    assert.match(html, /<script>/);
+    assert.match(html, /한국의 전통/);
   });
 });
