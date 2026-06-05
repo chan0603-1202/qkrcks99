@@ -30,9 +30,10 @@ describe('project structure', () => {
 
   it('configures Vercel static deployment', () => {
     const config = JSON.parse(readFileSync('vercel.json', 'utf8'));
-    assert.equal(config.framework, null);
-    assert.equal(config.buildCommand, 'npm test && npm run build');
-    assert.equal(config.outputDirectory, 'dist');
+    assert.equal(config.cleanUrls, true);
+    assert.equal(config.trailingSlash, false);
+    assert.equal(config.buildCommand, undefined);
+    assert.equal(config.outputDirectory, undefined);
   });
 
   it('mounts the web app from index.html', () => {
