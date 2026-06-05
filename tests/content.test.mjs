@@ -8,7 +8,7 @@ describe('culture content', () => {
 
     for (const slide of heroSlides) {
       assert.ok(slide.id);
-      assert.match(slide.image, /^(assets\/images\/.+\.(png|jpg|jpeg)|https:\/\/.+)$/);
+      assert.match(slide.image, /^(assets\/images\/.+\.(png|jpg|jpeg|svg)|https:\/\/.+)$/);
       assert.equal(slide.title.ko, '한국의 전통');
       assert.equal(slide.title.en, "korea's Traditions");
       assert.ok(slide.caption.ko);
@@ -16,6 +16,15 @@ describe('culture content', () => {
       assert.ok(slide.alt.ko);
       assert.ok(slide.alt.en);
     }
+  });
+
+  it('uses a mannequin-style hanbok image without real people', () => {
+    const hanbokSlide = heroSlides.find((slide) => slide.id === 'hanbok');
+    const hanbokSection = sections.find((section) => section.id === 'hanbok');
+
+    assert.equal(hanbokSlide.image, 'assets/images/hanbok-mannequin.svg');
+    assert.equal(hanbokSection.menuImage, 'assets/images/hanbok-mannequin.svg');
+    assert.equal(hanbokSection.heroImage, 'assets/images/hanbok-mannequin.svg');
   });
 
   it('has the three required explanation sections in Korean and English', () => {
