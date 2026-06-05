@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Hanok courtyard scene</title>
+  <desc id="desc">A calm Korean hanok courtyard illustration with dark navy atmosphere and subtle dancheong colors.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#07162a"/>
+      <stop offset=".62" stop-color="#12284c"/>
+      <stop offset="1" stop-color="#1b355f"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="0" x2="1">
+      <stop offset="0" stop-color="#fffaf0"/>
+      <stop offset="1" stop-color="#e8dcc8"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#2f4b68"/>
+      <stop offset="1" stop-color="#081526"/>
+    </linearGradient>
+    <filter id="soft" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+  </defs>
+  <rect width="900" height="1200" fill="url(#sky)"/>
+  <circle cx="698" cy="182" r="150" fill="#c59b45" opacity=".16" filter="url(#soft)"/>
+  <path d="M0 720h900v480H0z" fill="url(#floor)"/>
+  <path d="M90 782h720l78 418H12z" fill="#0d1f3a" opacity=".72"/>
+  <path d="M96 790h708M70 930h760M42 1082h816M226 790l-96 410M448 790v410M674 790l96 410" stroke="#d7bc7a" stroke-opacity=".22" stroke-width="4"/>
+  <path d="M70 454c106-82 224-119 352-119 136 0 271 38 405 119l-42 76c-119-65-240-98-363-98-121 0-228 33-322 98z" fill="#081526"/>
+  <path d="M54 505c126-82 254-123 384-123 137 0 276 41 416 123l-34 58c-130-69-257-104-382-104-121 0-238 35-350 104z" fill="#151923"/>
+  <path d="M120 534c105-57 212-86 320-86 110 0 222 29 337 86" fill="none" stroke="#c59b45" stroke-width="10" stroke-linecap="round"/>
+  <path d="M142 558c96-46 195-69 297-69 104 0 210 23 318 69" fill="none" stroke="#24715f" stroke-width="8" stroke-linecap="round"/>
+  <path d="M174 583c86-35 174-53 264-53 92 0 185 18 280 53" fill="none" stroke="#9f3b36" stroke-width="7" stroke-linecap="round"/>
+  <rect x="128" y="564" width="644" height="260" rx="8" fill="#2a1c15"/>
+  <rect x="164" y="596" width="192" height="204" fill="url(#paper)"/>
+  <rect x="390" y="596" width="120" height="204" fill="url(#paper)"/>
+  <rect x="546" y="596" width="192" height="204" fill="url(#paper)"/>
+  <g stroke="#263a54" stroke-width="7">
+    <path d="M164 664h192M164 732h192M230 596v204M292 596v204"/>
+    <path d="M390 664h120M450 596v204"/>
+    <path d="M546 664h192M546 732h192M610 596v204M674 596v204"/>
+  </g>
+  <rect x="112" y="812" width="676" height="26" fill="#111827"/>
+  <rect x="144" y="838" width="34" height="198" fill="#1f1613"/>
+  <rect x="722" y="838" width="34" height="198" fill="#1f1613"/>
+  <path d="M105 1036h690l-36 54H141z" fill="#c59b45"/>
+  <path d="M190 1090h520" stroke="#9f3b36" stroke-width="10" stroke-linecap="round"/>
+  <path d="M230 1114h440" stroke="#24715f" stroke-width="8" stroke-linecap="round"/>
+</svg>
