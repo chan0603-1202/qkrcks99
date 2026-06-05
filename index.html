@@ -3,332 +3,34 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#12284c">
+  <meta name="theme-color" content="#07162a">
   <title>한국의 전통</title>
   <link rel="stylesheet" href="./src/styles.css">
   <style>
-    :root {
-      --navy: #12284c;
-      --navy-deep: #07162a;
-      --ink: #151923;
-      --paper: #f7f1e5;
-      --panel: #fffaf0;
-      --gold: #c59b45;
-      --red: #9f3b36;
-      --green: #24715f;
-      --blue: #1f5f8b;
-      --muted: #5f6878;
-      --line: rgba(18, 40, 76, 0.16);
-      --dancheong: linear-gradient(90deg, var(--red), var(--gold), var(--green), var(--blue), var(--red));
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      min-width: 320px;
-      background:
-        radial-gradient(circle at 20% 0%, rgba(197, 155, 69, 0.16), transparent 30%),
-        linear-gradient(180deg, var(--navy-deep), var(--navy) 48%, #0e213f);
-      color: var(--ink);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-
-    body[data-lang="ko"] .en,
-    body[data-lang="en"] .ko { display: none !important; }
-
-    a { color: inherit; text-decoration: none; }
-    button { font: inherit; }
-    a:focus-visible, button:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
-
-    #app {
-      min-height: 100svh;
-      background: var(--paper);
-    }
-
-    .top {
-      position: fixed;
-      z-index: 50;
-      top: 0;
-      left: 0;
-      right: 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px;
-      pointer-events: none;
-    }
-
-    .top a, .top button, .lang { pointer-events: auto; }
-
-    .hamb {
-      width: 48px;
-      height: 44px;
-      border: 0;
-      border-radius: 10px;
-      background: rgba(255, 250, 240, 0.92);
-      display: grid;
-      place-content: center;
-      gap: 6px;
-      box-shadow: 0 8px 24px rgba(7, 15, 28, 0.18);
-    }
-
-    .hamb span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      border-radius: 99px;
-      background: var(--ink);
-    }
-
-    .lang {
-      display: flex;
-      gap: 4px;
-      padding: 4px;
-      border: 1px solid rgba(255, 255, 255, 0.34);
-      border-radius: 999px;
-      background: rgba(18, 40, 76, 0.7);
-      backdrop-filter: blur(12px);
-    }
-
-    .lang button {
-      min-width: 42px;
-      border: 0;
-      border-radius: 999px;
-      padding: 8px 10px;
-      background: transparent;
-      color: rgba(255, 255, 255, 0.78);
-      font-weight: 800;
-    }
-
-    .lang .active { background: var(--panel); color: var(--navy); }
-
-    .hero {
-      position: relative;
-      min-height: 100svh;
-      display: flex;
-      align-items: flex-end;
-      overflow: hidden;
-      background: var(--navy);
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(180deg, rgba(7, 22, 42, 0.18), rgba(7, 22, 42, 0.9)),
-        var(--bg);
-      background-position: center;
-      background-size: cover;
-      transform: scale(1.03);
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: auto 0 0;
-      height: 38%;
-      background:
-        linear-gradient(135deg, transparent 0 47%, rgba(197, 155, 69, 0.22) 47% 49%, transparent 49%),
-        linear-gradient(45deg, transparent 0 45%, rgba(255, 250, 240, 0.12) 45% 47%, transparent 47%);
-      opacity: 0.62;
-    }
-
-    .copy {
-      position: relative;
-      z-index: 1;
-      padding: 0 24px 86px;
-      color: white;
-    }
-
-    .copy p, .kicker {
-      margin: 0 0 10px;
-      color: var(--gold);
-      font-size: 0.88rem;
-      font-weight: 900;
-    }
-
-    .copy h1, .page h1 {
-      margin: 0;
-      font-size: 2.24rem;
-      line-height: 1.08;
-      letter-spacing: 0;
-    }
-
-    .dots {
-      position: absolute;
-      z-index: 1;
-      left: 24px;
-      bottom: 34px;
-      display: flex;
-      gap: 8px;
-    }
-
-    .dots span {
-      width: 8px;
-      height: 8px;
-      border-radius: 99px;
-      background: rgba(255, 255, 255, 0.46);
-    }
-
-    .dots span:first-child { width: 30px; background: var(--panel); }
-
-    .menu-panel {
-      position: fixed;
-      z-index: 80;
-      inset: 0 auto 0 0;
-      width: min(88vw, 380px);
-      padding: 24px 18px;
-      overflow: auto;
-      background: var(--panel);
-      box-shadow: 0 18px 48px rgba(7, 22, 42, 0.28);
-      transform: translateX(-104%);
-      transition: transform 240ms ease;
-    }
-
-    .menu-panel:target { transform: translateX(0); }
-
-    .dancheong-edge { position: relative; }
-    .dancheong-edge::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 auto;
-      height: 4px;
-      background: var(--dancheong);
-      opacity: 0.82;
-    }
-
-    .menu-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      padding-bottom: 16px;
-      margin-bottom: 18px;
-      border-bottom: 3px double var(--gold);
-    }
-
-    .menu-head p { margin: 0 0 4px; color: var(--red); font-weight: 900; }
-    .menu-head h2 { margin: 0; color: var(--navy); font-size: 1.36rem; }
-
-    .close {
-      align-self: flex-start;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 9px 12px;
-      background: #efe5d6;
-      font-weight: 800;
-    }
-
-    .cards, .grid, .quiz-list { display: grid; gap: 12px; }
-
-    .card {
-      min-height: 112px;
-      border: 1px solid rgba(197, 155, 69, 0.36);
-      border-radius: 8px;
-      overflow: hidden;
-      display: grid;
-      grid-template-columns: 104px 1fr;
-      background: white;
-      box-shadow: 0 8px 20px rgba(18, 40, 76, 0.1);
-    }
-
-    .card::before {
-      content: "";
-      display: block;
-      grid-column: 1 / -1;
-      height: 3px;
-      background: var(--dancheong);
-      opacity: 0.72;
-    }
-
-    .card img { grid-row: 2; width: 100%; height: 100%; object-fit: cover; }
-    .card span { grid-row: 2; display: grid; align-content: center; gap: 6px; padding: 14px; }
-    .card strong { color: var(--navy); font-size: 1.1rem; }
-    .card small { color: var(--muted); line-height: 1.35; }
-    .quiz-card { grid-template-columns: 1fr; background: linear-gradient(135deg, var(--navy), var(--green)); color: white; }
-    .quiz-card strong { color: white; }
-
-    .page {
-      min-height: 100svh;
-      padding: 86px 18px 30px;
-      background: var(--paper);
-    }
-
-    .photo {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-      border-radius: 8px;
-      margin: 18px 0 22px;
-      box-shadow: 0 12px 28px rgba(18, 40, 76, 0.14);
-    }
-
-    .summary { color: var(--muted); line-height: 1.72; }
-    .grid, .quiz-list { margin: 22px 0; }
-
-    .info, .quiz-option {
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 18px;
-      background: white;
-      box-shadow: 0 8px 22px rgba(18, 40, 76, 0.08);
-    }
-
-    .info { border-left: 5px solid var(--red); }
-    .info:nth-child(2) { border-left-color: var(--blue); }
-    .info:nth-child(3) { border-left-color: var(--green); }
-    .info h2 { margin: 0 0 8px; color: var(--navy); font-size: 1.1rem; }
-    .info p { margin: 0; color: var(--muted); line-height: 1.56; }
-
-    .main-btn {
-      display: block;
-      width: 100%;
-      min-height: 52px;
-      border-radius: 8px;
-      padding: 14px 16px;
-      background: var(--navy);
-      color: white;
-      text-align: center;
-      font-weight: 900;
-    }
-
-    @media (min-width: 720px) {
-      body { display: grid; place-items: center; }
-      #app {
-        width: min(420px, 100%);
-        min-height: 100svh;
-        position: relative;
-        overflow-x: hidden;
-        box-shadow: 0 0 0 1px rgba(255, 250, 240, 0.18), 0 28px 90px rgba(0, 0, 0, 0.34);
-      }
-      .top, .menu-panel {
-        left: calc(50% - min(420px, 100%) / 2);
-        right: calc(50% - min(420px, 100%) / 2);
-      }
-      .menu-panel { right: auto; width: min(360px, 88vw); }
-    }
+    :root { --navy: #12284c; }
+    body { background: var(--navy); }
   </style>
 </head>
 <body data-lang="ko">
   <main id="app" aria-live="polite">
-    <div id="home" class="top">
-      <a class="hamb" href="#menuPanel" aria-label="메뉴"><span></span><span></span><span></span></a>
-      <div class="lang" aria-label="language">
+    <header id="home" class="top-bar">
+      <a class="menu-button" href="#menuPanel" aria-label="메뉴">
+        <span></span><span></span><span></span>
+      </a>
+      <div class="language-toggle" aria-label="language">
         <button class="active" type="button">KR</button>
         <button type="button">EN</button>
       </div>
-    </div>
+    </header>
 
-    <section class="hero" data-view="fallback" style="--bg: url('https://commons.wikimedia.org/wiki/Special:FilePath/Bukchon_Hanok_Village.jpg?width=1200')">
-      <div class="copy">
+    <section class="hero-screen" data-view="fallback" style="--hero-image: url('https://commons.wikimedia.org/wiki/Special:FilePath/Bukchon_Hanok_Village.jpg?width=1200')">
+      <div class="hero-copy">
         <p class="ko">자연과 어울리는 한옥</p>
         <p class="en">Hanok in harmony with nature</p>
         <h1 class="ko">한국의 전통</h1>
         <h1 class="en">korea's Traditions</h1>
       </div>
-      <div class="dots" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="slide-dots" aria-hidden="true"><span class="active"></span><span></span><span></span></div>
     </section>
 
     <aside id="menuPanel" class="menu-panel dancheong-edge" aria-label="site menu">
@@ -337,66 +39,52 @@
           <p class="ko">둘러보기</p><p class="en">Explore</p>
           <h2 class="ko">한국 전통문화</h2><h2 class="en">Korean Tradition</h2>
         </div>
-        <a class="close" href="#home"><span class="ko">닫기</span><span class="en">Close</span></a>
+        <a class="close-button" href="#home"><span class="ko">닫기</span><span class="en">Close</span></a>
       </div>
-      <nav class="cards">
-        <a class="card" href="#houses"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bukchon_Hanok_Village.jpg?width=600" alt="한옥"><span><strong class="ko">한국 가옥</strong><strong class="en">Korean Houses</strong><small class="ko">한옥, 온돌, 마루</small><small class="en">Hanok, ondol, maru</small></span></a>
-        <a class="card" href="#hanbok"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hanbok_%28%ED%95%9C%EB%B3%B5%29_%284261102177%29.jpg?width=600" alt="한복"><span><strong class="ko">한복</strong><strong class="en">Hanbok</strong><small class="ko">저고리, 치마와 바지, 색의 의미</small><small class="en">Jeogori, chima, baji, color</small></span></a>
-        <a class="card" href="#games"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Yut-nori.jpg?width=600" alt="윷놀이"><span><strong class="ko">전통놀이</strong><strong class="en">Traditional Games</strong><small class="ko">윷놀이, 제기차기, 투호</small><small class="en">Yutnori, jegichagi, tuho</small></span></a>
-        <a class="card quiz-card" href="#quiz"><span><strong class="ko">퀴즈</strong><strong class="en">Quiz</strong></span></a>
+      <nav class="menu-cards">
+        <a class="menu-card" href="#houses">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bukchon_Hanok_Village.jpg?width=600" alt="한옥">
+          <span><strong class="ko">한국 가옥</strong><strong class="en">Korean Houses</strong><small class="ko">한옥, 온돌, 마루</small><small class="en">Hanok, ondol, maru</small></span>
+        </a>
+        <a class="menu-card" href="#hanbok">
+          <img src="assets/images/hanbok-mannequin.svg" alt="한복 전시">
+          <span><strong class="ko">한복</strong><strong class="en">Hanbok</strong><small class="ko">저고리, 치마와 바지, 색의 의미</small><small class="en">Jeogori, chima, baji, color</small></span>
+        </a>
+        <a class="menu-card" href="#games">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Yut-nori.jpg?width=600" alt="윷놀이">
+          <span><strong class="ko">전통놀이</strong><strong class="en">Traditional Games</strong><small class="ko">윷놀이, 제기차기, 투호</small><small class="en">Yutnori, jegichagi, tuho</small></span>
+        </a>
+        <a class="menu-card quiz-card" href="#quiz"><span><strong class="ko">퀴즈</strong><strong class="en">Quiz</strong></span></a>
       </nav>
     </aside>
 
-    <section id="houses" class="page">
-      <img class="photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Bukchon_Hanok_Village.jpg?width=900" alt="한옥">
+    <section id="houses" class="content-page">
+      <img class="section-hero" src="https://commons.wikimedia.org/wiki/Special:FilePath/Bukchon_Hanok_Village.jpg?width=900" alt="한옥">
       <p class="kicker ko">한옥의 구조와 생활</p><p class="kicker en">Hanok, structure, and daily life</p>
       <h1 class="ko">한국 가옥</h1><h1 class="en">Korean Houses</h1>
-      <p class="summary ko">한옥은 나무, 흙, 돌, 종이 같은 자연 재료로 지은 한국의 전통 가옥입니다. 온돌은 바닥을 따뜻하게 하고, 마루는 바람이 통하게 하며, 마당과 처마는 자연과 가까운 생활을 보여줍니다.</p>
-      <p class="summary en">Hanok is a traditional Korean house built with natural materials. Ondol warms the floor, maru helps air flow, and the courtyard connects the home with nature.</p>
-      <div class="grid">
-        <article class="info dancheong-edge"><h2>온돌</h2><p>바닥을 따뜻하게 데우는 전통 난방 방식입니다.</p></article>
-        <article class="info dancheong-edge"><h2>마루</h2><p>바람이 잘 통하는 나무 바닥 공간입니다.</p></article>
-        <article class="info dancheong-edge"><h2>자연과의 조화</h2><p>마당, 처마, 창호를 통해 집과 자연이 이어집니다.</p></article>
-      </div>
-      <a class="main-btn" href="#quiz"><span class="ko">퀴즈로 복습하기</span><span class="en">Review with Quiz</span></a>
+      <p class="summary ko">한옥은 자연 재료로 지은 한국의 전통 가옥입니다. 온돌, 마루, 마당과 처마를 통해 계절과 자연에 맞춘 생활 방식을 보여줍니다.</p>
+      <p class="summary en">Hanok is a traditional Korean house built with natural materials, designed around floor heating, airflow, courtyards, and nature.</p>
     </section>
 
-    <section id="hanbok" class="page">
-      <img class="photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Hanbok_%28%ED%95%9C%EB%B3%B5%29_%284261102177%29.jpg?width=900" alt="한복">
+    <section id="hanbok" class="content-page">
+      <img class="section-hero" src="assets/images/hanbok-mannequin.svg" alt="한복 전시">
       <p class="kicker ko">색, 선, 예절의 옷</p><p class="kicker en">Clothing of color, line, and occasion</p>
       <h1 class="ko">한복</h1><h1 class="en">Hanbok</h1>
       <p class="summary ko">한복은 한국의 전통 의복입니다. 부드러운 선과 넉넉한 형태가 특징이며 명절과 결혼식 같은 특별한 날에 자주 입습니다.</p>
       <p class="summary en">Hanbok is traditional Korean clothing known for soft lines, graceful volume, and ceremonial colors.</p>
-      <div class="grid">
-        <article class="info dancheong-edge"><h2>저고리</h2><p>상체에 입는 한복의 짧은 윗옷입니다.</p></article>
-        <article class="info dancheong-edge"><h2>치마와 바지</h2><p>한복의 흐르는 실루엣과 움직임을 만듭니다.</p></article>
-        <article class="info dancheong-edge"><h2>색의 의미</h2><p>행사, 계절, 상징과 연결됩니다.</p></article>
-      </div>
-      <a class="main-btn" href="#quiz"><span class="ko">퀴즈로 복습하기</span><span class="en">Review with Quiz</span></a>
     </section>
 
-    <section id="games" class="page">
-      <img class="photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Yut-nori.jpg?width=900" alt="윷놀이">
+    <section id="games" class="content-page">
+      <img class="section-hero" src="https://commons.wikimedia.org/wiki/Special:FilePath/Yut-nori.jpg?width=900" alt="윷놀이">
       <p class="kicker ko">함께 배우고 즐기는 놀이</p><p class="kicker en">Games for learning and gathering</p>
       <h1 class="ko">전통놀이</h1><h1 class="en">Traditional Games</h1>
-      <p class="summary ko">한국의 전통놀이는 가족과 마을 사람들이 함께 즐기던 놀이입니다. 윷놀이, 제기차기, 투호처럼 규칙이 간단해 처음 접하는 사람도 쉽게 따라 할 수 있습니다.</p>
+      <p class="summary ko">전통놀이는 가족과 마을 사람들이 함께 즐기던 놀이입니다. 윷놀이, 제기차기, 투호처럼 규칙이 간단해 쉽게 따라 할 수 있습니다.</p>
       <p class="summary en">Traditional Korean games were enjoyed by families and communities, especially during holidays and outdoor gatherings.</p>
-      <div class="grid">
-        <article class="info dancheong-edge"><h2>윷놀이</h2><p>윷가락을 던져 말을 움직이는 대표적인 명절 놀이입니다.</p></article>
-        <article class="info dancheong-edge"><h2>제기차기</h2><p>제기를 발로 차며 떨어뜨리지 않는 놀이입니다.</p></article>
-        <article class="info dancheong-edge"><h2>투호</h2><p>항아리에 화살을 던져 넣는 전통놀이입니다.</p></article>
-      </div>
-      <a class="main-btn" href="#quiz"><span class="ko">퀴즈로 복습하기</span><span class="en">Review with Quiz</span></a>
     </section>
 
-    <section id="quiz" class="page">
+    <section id="quiz" class="quiz-page">
       <p class="kicker ko">퀴즈</p><p class="kicker en">Quiz</p>
       <h1 class="ko">퀴즈</h1><h1 class="en">Quiz</h1>
-      <div class="quiz-list">
-        <a class="quiz-option dancheong-edge" href="#houses"><strong>한국 가옥 퀴즈</strong><span> 온돌과 마루를 복습합니다.</span></a>
-        <a class="quiz-option dancheong-edge" href="#hanbok"><strong>한복 퀴즈</strong><span> 저고리와 색의 의미를 복습합니다.</span></a>
-        <a class="quiz-option dancheong-edge" href="#games"><strong>전통놀이 퀴즈</strong><span> 윷놀이, 제기차기, 투호를 복습합니다.</span></a>
-      </div>
     </section>
   </main>
   <script type="module" src="./src/app.js"></script>
