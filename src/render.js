@@ -114,13 +114,11 @@ function renderHome(state, data) {
 
 function renderMenu(state, data) {
   const { language } = state;
-  if (!state.menuOpen) {
-    return '';
-  }
+  const openClass = state.menuOpen ? ' open' : '';
 
   return `
-    <button class="menu-scrim open" data-action="close-menu" type="button" aria-label="${labels[language].close}"></button>
-    <aside class="menu-panel dancheong-edge open" aria-hidden="false">
+    <button class="menu-scrim${openClass}" data-action="close-menu" type="button" aria-label="${labels[language].close}"></button>
+    <aside class="menu-panel dancheong-edge${openClass}" aria-hidden="${state.menuOpen ? 'false' : 'true'}">
       <div class="menu-head">
         <div>
           <p>${labels[language].explore}</p>
@@ -258,5 +256,5 @@ export function renderApp(state, data) {
           ? renderQuizChooser(state, data)
           : renderHome(state, data);
 
-  return `${body}${renderMenu(state, data)}`;
+  return `${renderMenu(state, data)}${body}`;
 }
