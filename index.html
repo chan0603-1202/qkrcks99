@@ -16,8 +16,8 @@
       flex-direction: column;
       justify-content: flex-end;
       opacity: 0;
-      animation: hero-fade 13.5s ease-in-out infinite;
-      animation-delay: calc(var(--slide-index) * 4.5s);
+      animation: none;
+      transition: opacity 720ms ease;
     }
     .hero-slide::before {
       content: "";
@@ -36,8 +36,8 @@
       opacity: 0.55;
     }
     .slide-dots span {
-      animation: dot-fade 13.5s ease-in-out infinite;
-      animation-delay: calc(var(--dot-index) * 4.5s);
+      animation: none;
+      transition: width 240ms ease, background 240ms ease;
     }
     .hero-photo {
       position: absolute;
@@ -46,6 +46,10 @@
       height: 100%;
       object-fit: cover;
       transform: scale(1.03);
+    }
+    .hero-slide.active,
+    .hero-screen[data-view="fallback"] .hero-slide:first-of-type {
+      opacity: 1;
     }
     @keyframes hero-fade {
       0%, 33% { opacity: 1; }
