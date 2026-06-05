@@ -40,15 +40,30 @@ describe('project structure', () => {
     const html = readFileSync('index.html', 'utf8');
     assert.match(html, /<main id="app"/);
     assert.match(html, /<style>/);
-    assert.match(html, /<script type="module">/);
+    assert.match(html, /<script type="module"/);
     assert.match(html, /한국의 전통/);
   });
 
-  it('includes visible fallback content before JavaScript runs', () => {
+  it('keeps fallback navigation inside the hamburger slide panel', () => {
     const html = readFileSync('index.html', 'utf8');
     assert.doesNotMatch(html, /<main id="app"[^>]*>\s*<\/main>/);
     assert.match(html, /data-view="fallback"/);
+    assert.match(html, /id="menuPanel"/);
+    assert.match(html, /href="#menuPanel"/);
     assert.match(html, /href="#houses"/);
     assert.match(html, /href="#quiz"/);
+    assert.doesNotMatch(html, /<section id="menu"/);
+    assert.doesNotMatch(html, /원하는 사람만/);
+    assert.doesNotMatch(html, /문화 퀴즈/);
+    assert.doesNotMatch(html, /Optional review/);
+    assert.match(html, />퀴즈</);
+    assert.match(html, />Quiz</);
+  });
+
+  it('uses a navy magazine backdrop with restrained dancheong borders', () => {
+    const html = readFileSync('index.html', 'utf8');
+    assert.match(html, /--navy:\s*#12284c/);
+    assert.match(html, /body[\s\S]*background:[\s\S]*var\(--navy\)/);
+    assert.match(html, /dancheong-edge/);
   });
 });
