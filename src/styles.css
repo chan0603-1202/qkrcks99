@@ -30,6 +30,11 @@ body {
     linear-gradient(180deg, var(--navy-deep), var(--navy) 46%, #0e213f);
 }
 
+body[data-lang="ko"] .en,
+body[data-lang="en"] .ko {
+  display: none !important;
+}
+
 button {
   font: inherit;
 }
@@ -51,7 +56,12 @@ a:focus-visible {
 
 #app {
   min-height: 100svh;
-  background: var(--paper);
+  position: relative;
+  overflow-x: hidden;
+  background:
+    linear-gradient(90deg, rgba(159, 59, 54, 0.24), transparent 2px) left top / 16px 100% no-repeat,
+    linear-gradient(90deg, transparent calc(100% - 2px), rgba(36, 113, 95, 0.3) calc(100% - 2px)) right top / 16px 100% no-repeat,
+    linear-gradient(180deg, var(--navy-deep), var(--navy) 48%, #0b1f3c);
 }
 
 .hero-screen {
@@ -69,7 +79,7 @@ a:focus-visible {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(180deg, rgba(7, 22, 42, 0.18), rgba(7, 22, 42, 0.9)),
+    linear-gradient(180deg, rgba(11, 22, 42, 0.24), rgba(11, 22, 42, 0.84)),
     var(--hero-image);
   background-position: center;
   background-size: cover;
@@ -82,9 +92,9 @@ a:focus-visible {
   inset: auto 0 0;
   height: 42%;
   background:
-    linear-gradient(135deg, transparent 0 46%, rgba(197, 155, 69, 0.22) 46% 48%, transparent 48%),
+    linear-gradient(135deg, transparent 0 46%, rgba(197, 155, 69, 0.18) 46% 48%, transparent 48%),
     linear-gradient(45deg, transparent 0 44%, rgba(255, 250, 240, 0.12) 44% 46%, transparent 46%);
-  opacity: 0.62;
+  opacity: 0.55;
 }
 
 .top-bar {
@@ -199,24 +209,22 @@ a:focus-visible {
 .menu-scrim {
   position: fixed;
   inset: 0;
-  z-index: 30;
-  display: none;
+  z-index: 68;
   border: 0;
-  background: rgba(5, 12, 24, 0.34);
-}
-
-.menu-scrim.open {
-  display: block;
+  background: rgba(5, 12, 24, 0.48);
+  backdrop-filter: blur(2px);
 }
 
 .menu-panel {
   position: fixed;
-  z-index: 40;
+  z-index: 80;
   inset: 0 auto 0 0;
   width: min(88vw, 380px);
   padding: 24px 18px;
   overflow-y: auto;
-  background: var(--panel);
+  background:
+    linear-gradient(90deg, rgba(159, 59, 54, 0.12), transparent 12px),
+    linear-gradient(180deg, #fffaf0, #f5ead8);
   box-shadow: var(--shadow);
   transform: translateX(-104%);
   transition: transform 240ms ease;
@@ -343,7 +351,23 @@ a:focus-visible {
 .quiz-page {
   min-height: 100svh;
   padding: 86px 18px 30px;
-  background: var(--paper);
+  background:
+    linear-gradient(90deg, rgba(159, 59, 54, 0.22), transparent 2px) left top / 14px 100% no-repeat,
+    linear-gradient(90deg, transparent calc(100% - 2px), rgba(36, 113, 95, 0.26) calc(100% - 2px)) right top / 14px 100% no-repeat,
+    radial-gradient(circle at 20% 0%, rgba(197, 155, 69, 0.13), transparent 30%),
+    linear-gradient(180deg, var(--navy-deep), var(--navy) 46%, #0e213f);
+  color: #fffaf0;
+}
+
+.content-page::before,
+.quiz-page::before {
+  content: "";
+  display: block;
+  height: 4px;
+  margin: -2px 0 18px;
+  border-radius: 999px;
+  background: var(--dancheong);
+  opacity: 0.72;
 }
 
 .section-hero {
@@ -351,12 +375,13 @@ a:focus-visible {
   aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: 8px;
-  box-shadow: 0 12px 28px rgba(18, 40, 76, 0.14);
+  border: 1px solid rgba(197, 155, 69, 0.52);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.24);
   margin: 18px 0 22px;
 }
 
 .summary {
-  color: var(--muted);
+  color: rgba(255, 250, 240, 0.78);
   line-height: 1.72;
   font-size: 1rem;
 }
@@ -494,7 +519,7 @@ a:focus-visible {
     min-height: 100svh;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 0 0 1px rgba(255, 250, 240, 0.18), 0 28px 90px rgba(0, 0, 0, 0.34);
+    box-shadow: 0 0 0 1px rgba(18, 40, 76, 0.1);
   }
 
   .top-bar,
