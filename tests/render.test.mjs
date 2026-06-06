@@ -1,7 +1,7 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
 import { heroSlides, quizBank, sections } from '../src/content.js';
-import { createAppState, setLanguage, startQuiz } from '../src/state.js';
+import { answerQuestion, createAppState, setLanguage, startQuiz } from '../src/state.js';
 import { renderApp } from '../src/render.js';
 
 describe('renderApp', () => {
@@ -10,8 +10,9 @@ describe('renderApp', () => {
     assert.match(html, /class="hero-screen"/);
     assert.match(html, /data-action="open-menu"/);
     assert.match(html, /한국의 전통/);
-    assert.doesNotMatch(html, /class="menu-card/);
-    assert.doesNotMatch(html, /class="menu-panel/);
+    assert.match(html, /class="menu-panel dancheong-edge"/);
+    assert.match(html, /aria-hidden="true"/);
+    assert.doesNotMatch(html, /class="menu-panel[^"]*open/);
   });
 
   it('renders the English central copy when language is changed', () => {
@@ -24,6 +25,8 @@ describe('renderApp', () => {
     const state = { ...createAppState(), menuOpen: true };
     const html = renderApp(state, { heroSlides, sections, quizBank });
     assert.match(html, /class="menu-panel[^"]*open[^"]*"/);
+    assert.match(html, /class="menu-scrim open"/);
+    assert.equal(html.indexOf('class="menu-panel') < html.indexOf('class="hero-screen"'), true);
     assert.match(html, /한국 가옥/);
     assert.match(html, /한복/);
     assert.match(html, /전통놀이/);
@@ -62,5 +65,16 @@ describe('renderApp', () => {
     const questionHtml = renderApp(quizState, { heroSlides, sections, quizBank });
     assert.match(questionHtml, /quiz-question/);
     assert.match(questionHtml, /data-answer-index="0"/);
+  });
+
+  it('does not show correct feedback after a wrong quiz answer', () => {
+    const state = answerQuestion(
+      startQuiz(setLanguage(createAppState(), 'en'), 'games', quizBank.games),
+      3,
+    );
+    const html = renderApp(state, { heroSlides, sections, quizBank });
+
+    assert.doesNotMatch(html, /Correct\./);
+    assert.match(html, /Not quite/);
   });
 });
