@@ -49,6 +49,11 @@ const labels = {
   },
 };
 
+const incorrectQuizFeedback = {
+  ko: '아쉬워요. 이 선택지는 정답이 아닙니다.',
+  en: 'Not quite. This choice is not correct.',
+};
+
 function htmlEscape(value) {
   return String(value)
     .replaceAll('&', '&amp;')
@@ -210,6 +215,9 @@ function renderQuizQuestion(state) {
   const question = quiz.questions[quiz.currentIndex];
   const options = optionCopy(question, language);
   const answered = quiz.answers.find((answer) => answer.questionIndex === quiz.currentIndex);
+  const feedback = answered?.correct
+    ? copy(question.feedback, language)
+    : htmlEscape(incorrectQuizFeedback[language]);
   const nextLabel = quiz.currentIndex + 1 === quiz.questions.length
     ? labels[language].result
     : labels[language].next;
@@ -226,7 +234,7 @@ function renderQuizQuestion(state) {
           </button>
         `).join('')}
       </div>
-      ${answered ? `<p class="feedback">${copy(question.feedback, language)}</p>` : ''}
+      ${answered ? `<p class="feedback">${feedback}</p>` : ''}
       ${answered ? `<button class="primary-action" data-action="next-question" type="button">${nextLabel}</button>` : ''}
     </section>
   `;
