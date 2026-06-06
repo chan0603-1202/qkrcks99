@@ -95,12 +95,12 @@
       <path d="M260 54 C231 54 209 77 209 111 L209 190 H316 L316 111 C316 77 291 54 260 54Z" fill="url(#whiteCloth)"/>
       <path d="M218 98 C230 75 246 65 260 65 C279 65 300 79 309 101 L309 146 C285 136 241 136 218 146Z" fill="#f8f6f1"/>
       <path d="M198 176 L327 176 L354 250 L176 250Z" fill="url(#whiteCloth)"/>
-      <path d="M212 79 C228 43 252 31 272 35 C316 44 342 61 344 98 C315 87 282 80 212 79Z" fill="#111316"/>
-      <ellipse cx="276" cy="83" rx="74" ry="19" fill="#1a1b1f"/>
-      <path d="M230 67 C256 33 305 35 333 68 C305 58 259 57 230 67Z" fill="#1b1d20"/>
-      <circle cx="250" cy="60" r="6" fill="#c59b45"/>
-      <circle cx="278" cy="51" r="7" fill="#9f3b36"/>
-      <circle cx="307" cy="62" r="6" fill="#24715f"/>
+      <path d="M204 82 C226 44 294 44 316 82 C288 76 232 76 204 82Z" fill="#111316"/>
+      <ellipse cx="260" cy="83" rx="78" ry="19" fill="#1a1b1f"/>
+      <path d="M212 68 C234 34 286 34 308 68 C286 58 234 58 212 68Z" fill="#1b1d20"/>
+      <circle cx="236" cy="61" r="6" fill="#c59b45"/>
+      <circle cx="260" cy="51" r="7" fill="#9f3b36"/>
+      <circle cx="284" cy="61" r="6" fill="#24715f"/>
 
       <path d="M118 250 H402 C456 364 472 518 446 712 H74 C48 518 62 364 118 250Z" fill="url(#pinkChima)"/>
       <path d="M118 250 H402 C456 364 472 518 446 712 H74 C48 518 62 364 118 250Z" fill="url(#subtleSilk)" opacity=".42"/>
