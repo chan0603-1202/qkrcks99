@@ -11,6 +11,7 @@
   --gold: #c59b45;
   --green: #24715f;
   --dancheong: linear-gradient(90deg, var(--red), var(--gold), var(--green), var(--blue), var(--red));
+  --navy-weave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='96' viewBox='0 0 120 96'%3E%3Cg fill='none' stroke='%23fffaf0' stroke-opacity='.14' stroke-width='2'%3E%3Cpath d='M0 24L30 0L60 24L90 0L120 24'/%3E%3Cpath d='M0 48L30 24L60 48L90 24L120 48'/%3E%3Cpath d='M0 72L30 48L60 72L90 48L120 72'/%3E%3Cpath d='M0 96L30 72L60 96L90 72L120 96'/%3E%3Cpath d='M30 0L60 24L90 0'/%3E%3Cpath d='M30 24L60 48L90 24'/%3E%3Cpath d='M30 48L60 72L90 48'/%3E%3Cpath d='M30 72L60 96L90 72'/%3E%3C/g%3E%3C/svg%3E");
   --line: rgba(18, 40, 76, 0.14);
   --shadow: 0 18px 48px rgba(18, 40, 76, 0.24);
   color: var(--ink);
@@ -26,6 +27,7 @@ body {
   min-width: 320px;
   margin: 0;
   background:
+    var(--navy-weave) center top / 120px 96px repeat,
     radial-gradient(circle at 20% 0%, rgba(197, 155, 69, 0.16), transparent 30%),
     linear-gradient(180deg, var(--navy-deep), var(--navy) 46%, #0e213f);
 }
@@ -72,6 +74,7 @@ a:focus-visible {
   background:
     linear-gradient(90deg, rgba(159, 59, 54, 0.24), transparent 2px) left top / 16px 100% no-repeat,
     linear-gradient(90deg, transparent calc(100% - 2px), rgba(36, 113, 95, 0.3) calc(100% - 2px)) right top / 16px 100% no-repeat,
+    var(--navy-weave) center top / 120px 96px repeat,
     linear-gradient(180deg, var(--navy-deep), var(--navy) 48%, #0b1f3c);
 }
 
@@ -306,6 +309,10 @@ a:focus-visible {
   position: relative;
 }
 
+.menu-panel.dancheong-edge {
+  position: absolute;
+}
+
 .dancheong-edge::before {
   content: "";
   position: absolute;
@@ -424,6 +431,7 @@ a:focus-visible {
   background:
     linear-gradient(90deg, rgba(159, 59, 54, 0.22), transparent 2px) left top / 14px 100% no-repeat,
     linear-gradient(90deg, transparent calc(100% - 2px), rgba(36, 113, 95, 0.26) calc(100% - 2px)) right top / 14px 100% no-repeat,
+    var(--navy-weave) center top / 120px 96px repeat,
     radial-gradient(circle at 20% 0%, rgba(197, 155, 69, 0.13), transparent 30%),
     linear-gradient(180deg, var(--navy-deep), var(--navy) 46%, #0e213f);
   color: #fffaf0;
