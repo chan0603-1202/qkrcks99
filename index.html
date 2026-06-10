@@ -7,11 +7,40 @@
   <title>한국의 전통</title>
   <link rel="stylesheet" href="./src/styles.css?v=one-page-2">
   <style>
-    :root { --navy: #12284c; }
+    :root { --navy: #12284c; --poster-sage: #c7c8b5; --poster-cream: #ebe5cf; --poster-teal: #1f9a83; }
     body { background: var(--navy); }
     .menu-panel.dancheong-edge { position: absolute; }
     .hero-screen {
-      background: var(--navy-weave) center top / 120px 96px repeat, radial-gradient(circle at 74% 20%, rgba(255, 250, 240, 0.16), transparent 16%), linear-gradient(180deg, var(--navy-deep), var(--navy) 54%, #0c203d);
+      background: linear-gradient(90deg, rgba(255, 250, 240, 0.38) 0 23%, transparent 23%), radial-gradient(circle at 78% 17%, rgba(255, 250, 240, 0.28), transparent 10%), radial-gradient(circle at 18% 78%, rgba(31, 154, 131, 0.2), transparent 22%), linear-gradient(180deg, var(--poster-cream), var(--poster-sage) 54%, #b5baa4);
+    }
+    .hero-screen::before {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      top: 92px;
+      right: -54px;
+      width: 260px;
+      height: 520px;
+      background: repeating-linear-gradient(90deg, rgba(31, 154, 131, 0.62) 0 2px, transparent 2px 12px), repeating-linear-gradient(0deg, rgba(31, 154, 131, 0.5) 0 2px, transparent 2px 12px);
+      clip-path: polygon(12% 0, 88% 0, 100% 12%, 100% 88%, 88% 100%, 12% 100%, 0 88%, 0 12%);
+      opacity: 0.34;
+      mix-blend-mode: multiply;
+      pointer-events: none;
+    }
+    .hero-screen::after {
+      content: "SEOUL";
+      position: absolute;
+      z-index: 3;
+      top: 112px;
+      left: 22px;
+      color: rgba(255, 250, 240, 0.58);
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      line-height: 1;
+      writing-mode: vertical-rl;
+      text-orientation: upright;
+      pointer-events: none;
     }
     .hero-slide {
       position: absolute;
@@ -22,22 +51,30 @@
       opacity: 0;
       animation: none;
       transition: opacity 720ms ease;
+      z-index: 1;
     }
     .hero-slide::before {
       content: "";
       position: absolute;
-      inset: 0;
-      background-image: linear-gradient(180deg, rgba(11, 22, 42, 0.1), rgba(11, 22, 42, 0.34) 48%, rgba(11, 22, 42, 0.74));
+      z-index: 0;
+      inset: 112px 26px 118px 58px;
+      border: 1px solid rgba(255, 250, 240, 0.34);
+      background-image: linear-gradient(90deg, rgba(255, 250, 240, 0.22), transparent 1px), linear-gradient(180deg, rgba(255, 250, 240, 0.16), transparent 1px), linear-gradient(180deg, rgba(31, 154, 131, 0.22), rgba(18, 40, 76, 0.14));
       background-position: center;
-      background-size: cover;
+      background-size: 100% 100%, 100% 100%, cover;
+      clip-path: polygon(0 0, 100% 0, 100% 78%, 74% 100%, 0 100%);
+      opacity: 0.72;
     }
     .hero-slide::after {
       content: "";
       position: absolute;
-      inset: auto 0 0;
-      height: 42%;
-      background: linear-gradient(135deg, transparent 0 46%, rgba(197, 155, 69, 0.18) 46% 48%, transparent 48%), linear-gradient(45deg, transparent 0 44%, rgba(255, 250, 240, 0.12) 44% 46%, transparent 46%);
-      opacity: 0.55;
+      z-index: 2;
+      inset: auto -28px 108px 42px;
+      height: 34%;
+      background: linear-gradient(150deg, transparent 0 47%, rgba(255, 250, 240, 0.42) 47% 47.6%, transparent 47.6%), linear-gradient(36deg, transparent 0 49%, rgba(31, 154, 131, 0.28) 49% 50%, transparent 50%), linear-gradient(90deg, rgba(197, 155, 69, 0.72), rgba(159, 59, 54, 0.7) 68%, rgba(31, 154, 131, 0.7) 68%);
+      clip-path: polygon(0 50%, 96% 50%, 90% 62%, 0 62%);
+      opacity: 0.88;
+      pointer-events: none;
     }
     .slide-dots span {
       animation: none;
@@ -52,6 +89,25 @@
       object-fit: contain;
       object-position: center bottom;
       transform: none;
+      z-index: 1;
+      opacity: 0.78;
+      filter: sepia(0.2) saturate(0.86) hue-rotate(116deg) contrast(0.96);
+      mix-blend-mode: multiply;
+    }
+    .hero-copy {
+      z-index: 4;
+      margin: 0 24px 78px;
+      padding: 14px 0 4px 16px;
+      border-left: 1px solid rgba(255, 250, 240, 0.48);
+      color: #fffaf0;
+      text-shadow: 0 2px 12px rgba(18, 40, 76, 0.26);
+    }
+    .hero-copy p {
+      color: var(--red);
+    }
+    .slide-dots {
+      z-index: 4;
+      bottom: 32px;
     }
     .hero-slide.active,
     .hero-screen[data-view="fallback"] .hero-slide:first-of-type {
