@@ -19,13 +19,14 @@ const localImages = {
   houses: hanokPhoto,
   hanok: hanokPhoto,
   hanbok: 'https://www.handmk.com/news/photo/202301/14567_34731_2622.jpg',
-  games: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Yut_Nori.jpg/500px-Yut_Nori.jpg',
+  games: 'assets/images/yutnori-landscape.jpg',
 };
 
 const yutnoriFrameStyle = document.createElement('style');
 yutnoriFrameStyle.textContent = `
   .hero-photo[src*="Yut_Nori"],
-  .hero-photo[src*="yutnori-realistic"] {
+  .hero-photo[src*="yutnori-realistic"],
+  .hero-photo[src*="yutnori-landscape"] {
     top: clamp(184px, 25svh, 232px);
     height: clamp(260px, 36svh, 360px);
     object-fit: cover;
