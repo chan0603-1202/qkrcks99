@@ -15,10 +15,10 @@ import { renderApp } from './render.js?v=one-page-2';
 const root = document.querySelector('#app');
 const data = { heroSlides, sections, quizBank };
 const localImages = {
-  houses: 'assets/images/hanok-realistic.jpg',
-  hanok: 'assets/images/hanok-realistic.jpg',
-  hanbok: 'assets/images/hanbok-realistic.jpg',
-  games: 'assets/images/yutnori-realistic.jpg',
+  houses: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/20151003OjukheonDSC03018.jpg/900px-20151003OjukheonDSC03018.jpg',
+  hanok: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/20151003OjukheonDSC03018.jpg/900px-20151003OjukheonDSC03018.jpg',
+  hanbok: 'https://www.handmk.com/news/photo/202301/14567_34731_2622.jpg',
+  games: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Korea_yut_pan.jpg/900px-Korea_yut_pan.jpg',
 };
 
 for (const slide of data.heroSlides) {
