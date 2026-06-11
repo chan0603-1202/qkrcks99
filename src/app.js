@@ -18,7 +18,7 @@ const localImages = {
   houses: 'assets/images/hanok-fixed.svg',
   hanok: 'assets/images/hanok-fixed.svg',
   hanbok: 'https://www.handmk.com/news/photo/202301/14567_34731_2622.jpg',
-  games: 'assets/images/yutnori-fixed.svg',
+  games: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Yut_Nori.jpg/500px-Yut_Nori.jpg',
 };
 
 for (const slide of data.heroSlides) {
