@@ -14,7 +14,7 @@ import { renderApp } from './render.js?v=one-page-2';
 
 const root = document.querySelector('#app');
 const data = { heroSlides, sections, quizBank };
-const hanokPhoto = '/assets/images/hanok-realistic.jpg?v=hanok-photo-3';
+const hanokPhoto = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Korea-Seoul-Namsangol-02.jpg/960px-Korea-Seoul-Namsangol-02.jpg';
 const localImages = {
   houses: hanokPhoto,
   hanok: hanokPhoto,
