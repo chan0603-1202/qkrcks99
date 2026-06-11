@@ -15,8 +15,8 @@ import { renderApp } from './render.js?v=one-page-2';
 const root = document.querySelector('#app');
 const data = { heroSlides, sections, quizBank };
 const localImages = {
-  houses: 'assets/images/hanok-fixed.svg',
-  hanok: 'assets/images/hanok-fixed.svg',
+  houses: 'assets/images/hanok-realistic.jpg',
+  hanok: 'assets/images/hanok-realistic.jpg',
   hanbok: 'https://www.handmk.com/news/photo/202301/14567_34731_2622.jpg',
   games: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Yut_Nori.jpg/500px-Yut_Nori.jpg',
 };
