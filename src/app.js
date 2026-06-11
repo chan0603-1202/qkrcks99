@@ -19,7 +19,7 @@ const localImages = {
   houses: hanokPhoto,
   hanok: hanokPhoto,
   hanbok: 'https://www.handmk.com/news/photo/202301/14567_34731_2622.jpg',
-  games: 'assets/images/yutnori-realistic.jpg',
+  games: 'assets/images/yutnori-landscape.svg',
 };
 
 const yutnoriFrameStyle = document.createElement('style');
