@@ -22,6 +22,18 @@ const localImages = {
   games: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Yut_Nori.jpg/500px-Yut_Nori.jpg',
 };
 
+const yutnoriFrameStyle = document.createElement('style');
+yutnoriFrameStyle.textContent = `
+  .hero-photo[src*="Yut_Nori"],
+  .hero-photo[src*="yutnori-realistic"] {
+    top: clamp(184px, 25svh, 232px);
+    height: clamp(260px, 36svh, 360px);
+    object-fit: cover;
+    object-position: center center;
+  }
+`;
+document.head.append(yutnoriFrameStyle);
+
 for (const slide of data.heroSlides) {
   slide.image = localImages[slide.id] || slide.image;
 }
