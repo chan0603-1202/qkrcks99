@@ -15,10 +15,10 @@ import { renderApp } from './render.js?v=one-page-2';
 const root = document.querySelector('#app');
 const data = { heroSlides, sections, quizBank };
 const localImages = {
-  houses: 'assets/images/hanok-realistic.jpg',
-  hanok: 'assets/images/hanok-realistic.jpg',
+  houses: 'assets/images/hanok-fixed.svg',
+  hanok: 'assets/images/hanok-fixed.svg',
   hanbok: 'https://www.handmk.com/news/photo/202301/14567_34731_2622.jpg',
-  games: 'assets/images/yutnori-realistic.jpg',
+  games: 'assets/images/yutnori-fixed.svg',
 };
 
 for (const slide of data.heroSlides) {
