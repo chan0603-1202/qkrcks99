@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#07162a">
   <title>한국의 전통</title>
-  <link rel="stylesheet" href="./src/styles.css?v=one-page-2">
+  <link rel="stylesheet" href="./src/styles.css?v=mobile-hero-fix-1">
   <style>
     :root { --navy: #12284c; --poster-sage: #c7c8b5; --poster-cream: #ebe5cf; --poster-teal: #1f9a83; }
     body { background: var(--navy); }
@@ -54,8 +54,8 @@
       content: "";
       position: absolute;
       z-index: 2;
-      inset: auto -28px 108px 42px;
-      height: 34%;
+      inset: auto -28px 48px 42px;
+      height: 30%;
       background: linear-gradient(150deg, transparent 0 47%, rgba(255, 250, 240, 0.42) 47% 47.6%, transparent 47.6%), linear-gradient(36deg, transparent 0 49%, rgba(31, 154, 131, 0.28) 49% 50%, transparent 50%), linear-gradient(90deg, rgba(197, 155, 69, 0.72), rgba(159, 59, 54, 0.7) 68%, rgba(31, 154, 131, 0.7) 68%);
       clip-path: polygon(0 50%, 96% 50%, 90% 62%, 0 62%);
       opacity: 0.88;
@@ -129,15 +129,15 @@
       </div>
       <nav class="menu-cards">
         <a class="menu-card" href="#houses">
-          <img src="assets/images/hanok-scene.svg" alt="한옥">
+          <img src="assets/images/hanok-realistic.jpg" alt="한옥">
           <span><strong class="ko">한국 가옥</strong><strong class="en">Korean Houses</strong><small class="ko">한옥, 온돌, 마루</small><small class="en">Hanok, ondol, maru</small></span>
         </a>
         <a class="menu-card" href="#hanbok">
-          <img src="assets/images/hanbok-mannequin.svg" alt="한복 전시">
+          <img src="assets/images/hanbok-realistic.jpg" alt="한복 전시">
           <span><strong class="ko">한복</strong><strong class="en">Hanbok</strong><small class="ko">저고리, 치마와 바지, 색의 의미</small><small class="en">Jeogori, chima, baji, color</small></span>
         </a>
         <a class="menu-card" href="#games">
-          <img src="assets/images/yutnori-scene.svg" alt="윷놀이">
+          <img src="assets/images/yutnori-realistic.jpg" alt="윷놀이">
           <span><strong class="ko">전통놀이</strong><strong class="en">Traditional Games</strong><small class="ko">윷놀이, 제기차기, 투호</small><small class="en">Yutnori, jegichagi, tuho</small></span>
         </a>
         <a class="menu-card quiz-card" href="#quiz"><span><strong class="ko">퀴즈</strong><strong class="en">Quiz</strong></span></a>
@@ -145,8 +145,8 @@
     </aside>
 
     <section class="hero-screen" data-view="fallback">
-      <article class="hero-slide" style="--slide-index: 0; --hero-image: url('assets/images/hanok-scene.svg')">
-        <img class="hero-photo" src="assets/images/hanok-scene.svg" alt="한옥">
+      <article class="hero-slide" style="--slide-index: 0; --hero-image: url('assets/images/hanok-realistic.jpg')">
+        <img class="hero-photo" src="assets/images/hanok-realistic.jpg" alt="한옥">
         <div class="hero-copy">
           <p class="ko">자연과 어울리는 한옥</p>
           <p class="en">Hanok in harmony with nature</p>
@@ -154,8 +154,8 @@
           <h1 class="en">korea's Traditions</h1>
         </div>
       </article>
-      <article class="hero-slide" style="--slide-index: 1; --hero-image: url('assets/images/hanbok-mannequin.svg')">
-        <img class="hero-photo" src="assets/images/hanbok-mannequin.svg" alt="한복 전시">
+      <article class="hero-slide" style="--slide-index: 1; --hero-image: url('assets/images/hanbok-realistic.jpg')">
+        <img class="hero-photo" src="assets/images/hanbok-realistic.jpg" alt="한복 전시">
         <div class="hero-copy">
           <p class="ko">색과 선이 아름다운 한복</p>
           <p class="en">Hanbok shaped by color and line</p>
@@ -163,8 +163,8 @@
           <h1 class="en">korea's Traditions</h1>
         </div>
       </article>
-      <article class="hero-slide" style="--slide-index: 2; --hero-image: url('assets/images/yutnori-scene.svg')">
-        <img class="hero-photo" src="assets/images/yutnori-scene.svg" alt="윷놀이">
+      <article class="hero-slide" style="--slide-index: 2; --hero-image: url('assets/images/yutnori-realistic.jpg')">
+        <img class="hero-photo" src="assets/images/yutnori-realistic.jpg" alt="윷놀이">
         <div class="hero-copy">
           <p class="ko">함께 즐기는 전통놀이</p>
           <p class="en">Traditional games played together</p>
@@ -202,6 +202,6 @@
       });
     })();
   </script>
-  <script type="module" src="./src/app.js?v=one-page-2"></script>
+  <script type="module" src="./src/app.js?v=mobile-hero-fix-1"></script>
 </body>
 </html>
