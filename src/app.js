@@ -19,14 +19,15 @@ const localImages = {
   houses: hanokPhoto,
   hanok: hanokPhoto,
   hanbok: 'https://www.handmk.com/news/photo/202301/14567_34731_2622.jpg',
-  games: 'assets/images/yutnori-landscape.svg',
+  games: 'https://norifriends.com/web/product/big/202512/d61c3476b5a4fc6ce872e2f91234b6d6.jpg',
 };
 
 const yutnoriFrameStyle = document.createElement('style');
 yutnoriFrameStyle.textContent = `
   .hero-photo[src*="Yut_Nori"],
   .hero-photo[src*="yutnori-realistic"],
-  .hero-photo[src*="yutnori-landscape"] {
+  .hero-photo[src*="yutnori-landscape"],
+  .hero-photo[src*="norifriends.com/web/product/big/202512/d61c3476b5a4fc6ce872e2f91234b6d6"] {
     top: clamp(184px, 25svh, 232px);
     height: clamp(260px, 36svh, 360px);
     object-fit: cover;
