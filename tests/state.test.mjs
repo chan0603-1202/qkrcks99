@@ -55,7 +55,7 @@ describe('app state', () => {
     assert.equal(state.quiz.categoryId, 'houses');
     assert.equal(state.quiz.currentIndex, 0);
 
-    state = answerQuestion(state, 0);
+    state = answerQuestion(state, state.quiz.questions[0].answerIndex);
     assert.equal(state.quiz.answers[0].correct, true);
 
     state = nextQuestion(state);
@@ -65,5 +65,25 @@ describe('app state', () => {
     const result = getQuizResult(state);
     assert.equal(result.total, quizBank.houses.length);
     assert.equal(result.score, 1);
+  });
+
+  it('randomizes quiz answer order and keeps the correct answer mapped', () => {
+    const state = startQuiz(createAppState(), 'houses', quizBank.houses, () => 0);
+    const question = state.quiz.questions[0];
+
+    assert.notDeepEqual(question.options.ko, quizBank.houses[0].options.ko);
+    assert.equal(question.answerIndex, 3);
+
+    const answered = answerQuestion(state, question.answerIndex);
+    assert.equal(answered.quiz.answers[0].correct, true);
+  });
+
+  it('does not allow changing an answer after selecting once', () => {
+    const state = startQuiz(createAppState(), 'games', quizBank.games);
+    const firstChoice = answerQuestion(state, 1);
+    const changedChoice = answerQuestion(firstChoice, state.quiz.questions[0].answerIndex);
+
+    assert.deepEqual(changedChoice.quiz.answers, firstChoice.quiz.answers);
+    assert.equal(changedChoice.quiz.answers[0].selectedIndex, 1);
   });
 });
