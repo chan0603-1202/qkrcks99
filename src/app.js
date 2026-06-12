@@ -9,8 +9,8 @@ import {
   setActiveSlide,
   setLanguage,
   startQuiz,
-} from './state.js?v=one-page-2';
-import { renderApp } from './render.js?v=one-page-2';
+} from './state.js?v=quiz-order-lock-1';
+import { renderApp } from './render.js?v=quiz-order-lock-1';
 
 const root = document.querySelector('#app');
 const data = { heroSlides, sections, quizBank };
