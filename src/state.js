@@ -45,7 +45,25 @@ export function navigateTo(state, route, sectionId = null) {
   };
 }
 
-export function startQuiz(state, categoryId, questions) {
+function shuffleQuestion(question, random) {
+  const order = question.options.ko.map((_, index) => index);
+
+  for (let index = order.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(random() * (index + 1));
+    [order[index], order[swapIndex]] = [order[swapIndex], order[index]];
+  }
+
+  return {
+    ...question,
+    options: {
+      ko: order.map((index) => question.options.ko[index]),
+      en: order.map((index) => question.options.en[index]),
+    },
+    answerIndex: order.indexOf(question.answerIndex),
+  };
+}
+
+export function startQuiz(state, categoryId, questions, random = Math.random) {
   return {
     ...state,
     route: 'quiz',
@@ -53,7 +71,7 @@ export function startQuiz(state, categoryId, questions) {
     menuOpen: false,
     quiz: {
       categoryId,
-      questions,
+      questions: questions.map((question) => shuffleQuestion(question, random)),
       currentIndex: 0,
       answers: [],
       complete: false,
@@ -67,9 +85,15 @@ export function answerQuestion(state, selectedIndex) {
   }
 
   const question = state.quiz.questions[state.quiz.currentIndex];
-  const answers = state.quiz.answers.filter(
-    (answer) => answer.questionIndex !== state.quiz.currentIndex,
+  const alreadyAnswered = state.quiz.answers.some(
+    (answer) => answer.questionIndex === state.quiz.currentIndex,
   );
+
+  if (alreadyAnswered) {
+    return state;
+  }
+
+  const answers = [...state.quiz.answers];
 
   answers.push({
     questionIndex: state.quiz.currentIndex,
